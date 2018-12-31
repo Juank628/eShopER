@@ -1,32 +1,129 @@
-.App {
-  text-align: center;
+
+/*********************************General styles***********************************/
+.cBgBlack{
+  background-color: black
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.cBgWhite{
+  background-color: white
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.cFontMono{
+  font-family: monospace
 }
 
-.App-link {
-  color: #61dafb;
+.cNavBarSpace{
+  margin-top: 70px
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/********************************Components styles**********************************/
+.cCardTitle {
+  font-size: 15px;
+}
+
+.cCardPrice {
+  font-size: 14px;
+}
+
+.cPurchaseListName{
+  font-size: 15px;
+  font-weight: 700
+}
+
+.cPurchaseListPrice{
+  font-size: 12px;
+}
+
+.cPurchaseListSubTotal{
+  font-size: 18px;
+}
+
+.cPurchaseListImg{
+  max-width: 100px
+}
+
+.cTotalAndPayTitle{
+  color: gray
+}
+
+.cTotalAndPayPrice{
+  font-size: 40px;
+  font-weight: 700
+}
+
+.cTotalAndPayBtn{
+  font-weight: 700
+}
+
+
+/**********************************Media queries************************************/
+
+/* Very Small devices (landscape phones, 10px and up) */
+@media (min-width: 10px) {
+  .cFixed{
+    width: 95%;
+    position: fixed;
+    bottom: 0;
+    z-index: 100000
   }
-  to {
-    transform: rotate(360deg);
+
+  .cTotalAndPaySpace{
+    margin-bottom: 180px
+  }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 576px) {
+  .cFixed{
+    width: 30%;
+    position: fixed;
+    bottom: 50%;
+    z-index: 100000
+  }
+
+  .cTotalAndPaySpace{
+    margin-bottom: 10px
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .cFixed{
+    width: 30%;
+    position: fixed;
+    bottom: 50%;
+    z-index: 100000
+  }
+
+  .cTotalAndPaySpace{
+    margin-bottom: 10px
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .cFixed{
+    width: 30%;
+    position: fixed;
+    bottom: 50%;
+    z-index: 100000
+  }
+
+  .cTotalAndPaySpace{
+    margin-bottom: 10px
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .cFixed{
+    width: 30%;
+    position: fixed;
+    bottom: 50%;
+    z-index: 100000
+  }
+
+  .cTotalAndPaySpace{
+    margin-bottom: 10px
   }
 }
