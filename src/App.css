@@ -8,12 +8,35 @@
   background-color: white
 }
 
+.cBlackTransparent{
+  background-color: rgba(0,0,0,0.5) !IMPORTANT
+}
+
 .cFontMono{
   font-family: monospace
 }
 
+.cFontColorWhite{
+  color: white !IMPORTANT
+}
+
 .cNavBarSpace{
   margin-top: 70px
+}
+
+.cNavBarLicores{
+  background-image: url("/img/tragos/licores.jpg");
+  font-size: 50px;
+}
+
+.cNavBarCigarros{
+  background-image: url("/img/cigarros/cigarros.jpg");
+  font-size: 50px;
+}
+
+.cNavBarTapas{
+  background-image: url("/img/tapas/tapas.jpg");
+  font-size: 50px;
 }
 
 /********************************Components styles**********************************/

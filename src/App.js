@@ -9,12 +9,13 @@ import TotalAndPay from "./components/TotalAndPay";
 
 class App extends Component {
   state = {
-    showPurchaseList: false
+    showPurchaseList: false,
+    showMenu: true
   };
 
   cartPressed = () => {
     this.setState({
-      showPurchaseList: !this.state.showPurchaseList
+      showPurchaseList: !this.state.showPurchaseList,
     });
   };
 
