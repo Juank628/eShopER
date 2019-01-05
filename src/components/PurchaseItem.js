@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
-export default class PurchaseItem extends Component {
+class PurchaseItem extends Component {
   render() {
     const { name, price } = this.props.item;
     return (
@@ -63,3 +64,15 @@ export default class PurchaseItem extends Component {
     );
   }
 }
+
+PurchaseItem.defaultProps = {
+  name: "no name",
+  proce: 9999
+}
+
+PurchaseItem.PropTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired
+}
+
+export default PurchaseItem;

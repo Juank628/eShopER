@@ -1,12 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types'
 
 class ProductCard extends Component {
-  state = {};
-
-  remove = (name, price) => {
-    console.log(name + price);
-  };
-
   render() {
     const { name, price } = this.props.product;
 
@@ -24,16 +19,21 @@ class ProductCard extends Component {
           <h5 className="card-title cCardTitle">{name}</h5>
           <h5 className="card-text cCardPrice">{price}</h5>
           <button className="btn btn-sm btn-success mr-2 cFontMono">+</button>
-          <button
-            className="btn btn-sm btn-danger cFontMono"
-            onClick={this.remove.bind(this, name, price)}
-          >
-            -
-          </button>
+          <button className="btn btn-sm btn-danger cFontMono">-</button>
         </div>
       </div>
     );
   }
+}
+
+ProductCard.defaultProps = {
+  name: 'no name',
+  price: 9999
+}
+
+ProductCard.PropTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired
 }
 
 export default ProductCard;
