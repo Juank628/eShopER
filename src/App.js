@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { Provider } from "./context";
 import Navbar from "./components/Navbar.js";
 import ProductsCardList from "./components/ProductsCardList.js";
 import PurchaseItemList from "./components/PurchaseItemList";
@@ -15,7 +16,7 @@ class App extends Component {
 
   cartPressed = () => {
     this.setState({
-      showPurchaseList: !this.state.showPurchaseList,
+      showPurchaseList: !this.state.showPurchaseList
     });
   };
 
@@ -23,31 +24,33 @@ class App extends Component {
     const { showPurchaseList } = this.state;
 
     return (
-      <div className="App">
-        <Navbar cartPressedHandler={this.cartPressed} />
-        <div className="container col-12 cNavBarSpace">
-          <div className="row">
-            {!showPurchaseList ? (
-              <div className="col-12 justify-content-center">
-                <ProductsCardList />
-              </div>
-            ) : null}
+      <Provider>
+        <div className="App">
+          <Navbar cartPressedHandler={this.cartPressed} />
+          <div className="container col-12 cNavBarSpace">
+            <div className="row">
+              {!showPurchaseList ? (
+                <div className="col-12 justify-content-center">
+                  <ProductsCardList />
+                </div>
+              ) : null}
 
-            {showPurchaseList ? (
-              <div className="col-12">
-                <div className="row">
-                  <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                    <PurchaseItemList />
-                  </div>
-                  <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                    <TotalAndPay />
+              {showPurchaseList ? (
+                <div className="col-12">
+                  <div className="row">
+                    <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                      <PurchaseItemList />
+                    </div>
+                    <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                      <TotalAndPay />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+            </div>
           </div>
         </div>
-      </div>
+      </Provider>
     );
   }
 }

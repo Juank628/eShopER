@@ -2,16 +2,30 @@ import React, { Component } from 'react'
 
 class Navbar extends Component {
 
+  state={
+    showMenu: true
+  }
+
   cartPressed=()=>{
     this.props.cartPressedHandler();
+    this.setState({
+      showMenu: !this.state.showMenu
+    })
   }
 
   render() {
+    let {showMenu} = this.state;
+
     return (
-      <nav className="navbar navbar-dark fixed-top cBgBlack">
-        <img onClick={this.cartPressed} className="mr-auto" src={window.location.origin + "/img/icons/shopping-cart-white.png"} alt="not found"></img>
+      <nav className="navbar navbar-dark fixed-top cBgBlack cNavBarHeight">
+
+        {showMenu ? (
+          <img onClick={this.cartPressed} className="mr-auto" src={window.location.origin + "/img/icons/shopping-cart-white.png"} alt="not found"></img>
+        ):(
+          <img onClick={this.cartPressed} className="mr-auto" src={window.location.origin + "/img/icons/left-arrow-key-white.png"} alt="not found"></img>
+        )}
         
-        { true ? (
+        { showMenu ? (
 
           <React.Fragment>
 
@@ -36,14 +50,14 @@ class Navbar extends Component {
                 </div>
               </li>
 
-              <li class="nav-item cNavBarCigarros">
-                <div class="nav-link text-center cBlackTransparent">
+              <li className="nav-item cNavBarCigarros">
+                <div className="nav-link text-center cBlackTransparent">
                   <span className="cFontColorWhite">Cigarros</span>
                 </div>
               </li>
 
-              <li class="nav-item cNavBarTapas">
-                <div class="nav-link text-center cBlackTransparent">
+              <li className="nav-item cNavBarTapas">
+                <div className="nav-link text-center cBlackTransparent">
                   <span className="cFontColorWhite">Tapas</span>
                 </div>
               </li>

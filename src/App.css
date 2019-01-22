@@ -24,6 +24,10 @@
   margin-top: 70px
 }
 
+.cNavBarHeight{
+  height: 56px;
+}
+
 .cNavBarLicores{
   background-image: url("/img/tragos/licores.jpg");
   font-size: 50px;

@@ -31,7 +31,7 @@ ProductCard.defaultProps = {
   price: 9999
 }
 
-ProductCard.PropTypes = {
+ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired
 }

@@ -39,11 +39,7 @@ class PurchaseItem extends Component {
               <div className="row">
                 <div className="col-12">
                   <form className="form-inline justify-content-center">
-                    <img
-                      className="mr-3"
-                      src={window.location.origin + "/img/icons/trash-red.png"}
-                      alt="not found"
-                    />
+                    
                     <button className="btn btn-sm btn-success mr-1 cFontMono">
                       +
                     </button>
@@ -54,6 +50,13 @@ class PurchaseItem extends Component {
                     <button className="btn btn-sm btn-danger ml-1 cFontMono">
                       -
                     </button>
+
+                    <img
+                      className="ml-3"
+                      src={window.location.origin + "/img/icons/trash-red.png"}
+                      alt="not found"
+                    />
+
                   </form>
                 </div>
               </div>
@@ -67,10 +70,10 @@ class PurchaseItem extends Component {
 
 PurchaseItem.defaultProps = {
   name: "no name",
-  proce: 9999
+  price: 9999
 }
 
-PurchaseItem.PropTypes = {
+PurchaseItem.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired
 }
