@@ -3,22 +3,39 @@ import axios from "axios";
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'READ': 
+            console.log('READ FROM CONTEXT');
+            console.log(action.family);
+            console.log(action.subfamily);
+            
+            state.apiQuery('products','/1','/1');
+
+            break;
+        default:
+            console.log('NO ACTION');
+    }
+}
+
 export class Provider extends Component {
   state = {
-    products: []
-  };
+    products: [],
 
-  apiQuery = () => {
-    axios
-      .get(`http://127.0.0.1/eShopBackend/eShopBackend/public/api/products`)
-      .then(res => {
-        //console.log(res.data);
-        this.setState({ products: res.data });
-      });
+    apiQuery: (x,y,z) => {
+        axios
+          .get(`http://127.0.0.1/eShopBackend/eShopBackend/public/api/${x}${y}${z}`)
+          .then(res => {
+            this.setState({ products: res.data });
+          });
+      },
+
+
+    dispatch: action => this.setState(state=>reducer(state, action)),
   };
 
   componentDidMount() {
-    this.apiQuery();
+    this.state.apiQuery('products','','');
   }
 
   render() {
