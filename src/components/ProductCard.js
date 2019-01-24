@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class ProductCard extends Component {
   render() {
-    const { name, price } = this.props.product;
+    const { name, price, family, subfamily }  = this.props.product;
 
     return (
       <div className="card col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-2 mb-2">
@@ -11,7 +11,7 @@ class ProductCard extends Component {
           className="card-img-top"
           src={
             window.location.origin +
-            "/img/tragos/vinos/Casa silva cabernet sauvignon carmenere 750ml.jpg"
+            "/img/products/" + family + "/" + subfamily + "/" + name + ".jpg"
           }
           alt="not found"
         />
@@ -28,12 +28,14 @@ class ProductCard extends Component {
 
 ProductCard.defaultProps = {
   name: 'no name',
-  price: 9999
+  price: 9999,
+  img: ''
 }
 
 ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired
+  price: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired
 }
 
 export default ProductCard;

@@ -29,17 +29,17 @@
 }
 
 .cNavBarLicores{
-  background-image: url("/img/tragos/licores.jpg");
+  background-image: url("/img/products/tragos/licores.jpg");
   font-size: 50px;
 }
 
 .cNavBarCigarros{
-  background-image: url("/img/cigarros/cigarros.jpg");
+  background-image: url("/img/products/cigarros/cigarros.jpg");
   font-size: 50px;
 }
 
 .cNavBarTapas{
-  background-image: url("/img/tapas/tapas.jpg");
+  background-image: url("/img/products/tapas/tapas.jpg");
   font-size: 50px;
 }
 

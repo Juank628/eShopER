@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
+import NavbarItem from "./NavbarItem";
+import NavbarSubItem from "./NavbarSubItem"
 
 class Navbar extends Component {
   state = {
@@ -14,12 +16,12 @@ class Navbar extends Component {
   };
 
   linkPressed = (dispatch, family, subfamily) => {
-    dispatch({type: 'READ', family: family, subfamily: subfamily});
+    dispatch({type: 'READ_CARDS', x:'/products', y: family, z: subfamily});
   };
 
   render() {
     let { showMenu } = this.state;
-
+    
     return (
       <Consumer>
         {value => {
@@ -83,60 +85,18 @@ class Navbar extends Component {
                           className="dropdown-menu cBlackTransparent text-center"
                           aria-labelledby="navbarDropdown"
                         >
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Cervezas
-                          </a>
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Rones
-                          </a>
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Piscos
-                          </a>
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Vinos
-                          </a>
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Otros
-                          </a>
+                          <NavbarSubItem itemName="Cervezas" onClick={this.linkPressed.bind(this, dispatch, "/tragos", "/cervezas")} />
+                          <NavbarSubItem itemName="Rones" onClick={this.linkPressed.bind(this, dispatch, "/tragos", "/rones")} />
+                          <NavbarSubItem itemName="Piscos" onClick={this.linkPressed.bind(this, dispatch, "/tragos", "/piscos")} />
+                          <NavbarSubItem itemName="Vinos" onClick={this.linkPressed.bind(this, dispatch, "/tragos", "/vinos")} />
+                          <NavbarSubItem itemName="Otros" onClick={this.linkPressed.bind(this, dispatch, "/tragos", "/otros")} />
                           <div className="dropdown-divider" />
-                          <a
-                            className="dropdown-item cFontColorWhite"
-                            href="localhost:3000"
-                          >
-                            Todos
-                          </a>
+                          <NavbarSubItem itemName="Todos" onClick={this.linkPressed.bind(this, dispatch, "/tragos","")} />
                         </div>
                       </li>
 
-                      <li className="nav-item cNavBarCigarros">
-                        <div className="nav-link text-center cBlackTransparent">
-                          <span className="cFontColorWhite">Cigarros</span>
-                        </div>
-                      </li>
-
-                      <li className="nav-item cNavBarTapas">
-                        <div
-                          className="nav-link text-center cBlackTransparent"
-                          onClick={this.linkPressed.bind(this, dispatch, 1, '%')}
-                        >
-                          <span className="cFontColorWhite">Tapas</span>
-                        </div>
-                      </li>
+                      <NavbarItem itemName="Cigarros" itemClass="cNavBarCigarros" onClick={this.linkPressed.bind(this, dispatch, "/cigarros","")} />
+                      <NavbarItem itemName="Tapas" itemClass="cNavBarTapas" onClick={this.linkPressed.bind(this, dispatch, "/tapas","")} />
                     </ul>
                   </div>
                 </React.Fragment>
