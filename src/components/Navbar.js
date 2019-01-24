@@ -29,27 +29,17 @@ class Navbar extends Component {
         
           return (
             <nav className="navbar navbar-dark fixed-top cBgBlack cNavBarHeight">
-              {showMenu ? (
+              
                 <img
                   onClick={this.cartPressed}
                   className="mr-auto"
                   src={
-                    window.location.origin +
-                    "/img/icons/shopping-cart-white.png"
+                    showMenu ? (window.location.origin + "/img/icons/shopping-cart-white.png")
+                    :
+                    (window.location.origin + "/img/icons/left-arrow-key-white.png")
                   }
                   alt="not found"
                 />
-              ) : (
-                <img
-                  onClick={this.cartPressed}
-                  className="mr-auto"
-                  src={
-                    window.location.origin +
-                    "/img/icons/left-arrow-key-white.png"
-                  }
-                  alt="not found"
-                />
-              )}
 
               {showMenu ? (
                 <React.Fragment>
