@@ -4,8 +4,8 @@ import { Consumer } from "../context";
 
 class ProductCard extends Component {
 
-  clickAdd = (dispatch, name) => {
-      dispatch({type: 'ADD_PRODUCT', productName: name});
+  clickAdd = (dispatch, name, price) => {
+      dispatch({type: 'ADD_PRODUCT', productName: name, productPrice: price});
   };
 
   clickSub = (dispatch, name) => {
@@ -41,7 +41,7 @@ class ProductCard extends Component {
                 <h5 className="card-text cCardPrice">{price}</h5>
                 <button
                   className="btn btn-sm btn-success mr-2 cFontMono"
-                  onClick={this.clickAdd.bind(this,dispatch,name)}
+                  onClick={this.clickAdd.bind(this,dispatch,name,price)}
                 >
                   +
                 </button>

@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const Context = React.createContext();
-let productArray = [];
-let quantityArray = [];
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -12,29 +10,40 @@ const reducer = (state, action) => {
       break;
 
     case "ADD_PRODUCT":
-      let addProductIndex = productArray.indexOf(action.productName);
+      let addProductIndex = state.productArray.indexOf(action.productName);
       if (addProductIndex === -1) {
-        productArray.push(action.productName);
-        quantityArray.push(1);
-        sessionStorage.setItem("productArray", productArray);
-        sessionStorage.setItem("quatityArray", quantityArray);
+        state.productArray.push(action.productName);
+        state.quantityArray.push(1);
+        state.priceArray.push(action.productPrice);
+        sessionStorage.setItem("productArray", state.productArray);
+        sessionStorage.setItem("quantityArray", state.quantityArray);
+        sessionStorage.setItem("priceArray", state.priceArray);
       } else {
-        quantityArray[addProductIndex]++;
-        sessionStorage.setItem("quatityArray", quantityArray);
+        state.quantityArray[addProductIndex]++;
+        sessionStorage.setItem("quantityArray", state.quantityArray);
       }
+      state.makePurchaseList();
       break;
 
     case "SUB_PRODUCT":
-      let subProductIndex = productArray.indexOf(action.productName);
-      if (quantityArray[subProductIndex] <= 1) {
-        productArray.splice(subProductIndex, 1);
-        quantityArray.splice(subProductIndex, 1);
-        sessionStorage.setItem("productArray", productArray);
-        sessionStorage.setItem("quatityArray", quantityArray);
-      } else {
-        quantityArray[subProductIndex]--;
-        sessionStorage.setItem("quatityArray", quantityArray);
+      let subProductIndex = state.productArray.indexOf(action.productName);
+      if (subProductIndex !== -1) {
+        if (state.quantityArray[subProductIndex] <= 1) {
+          state.productArray.splice(subProductIndex, 1);
+          state.quantityArray.splice(subProductIndex, 1);
+          state.priceArray.splice(subProductIndex, 1);
+          sessionStorage.setItem("productArray", state.productArray);
+          sessionStorage.setItem("quantityArray", state.quantityArray);
+          sessionStorage.setItem("priceArray", state.priceArray);
+          if (state.productArray.length < 1) {
+            sessionStorage.clear();
+          }
+        } else {
+          state.quantityArray[subProductIndex]--;
+          sessionStorage.setItem("quantityArray", state.quantityArray);
+        }
       }
+      state.makePurchaseList();
       break;
 
     default:
@@ -45,6 +54,10 @@ const reducer = (state, action) => {
 export class Provider extends Component {
   state = {
     products: [],
+    productArray: [],
+    quantityArray: [],
+    priceArray: [],
+    purchaseList: [],
 
     apiQuery: (x, y, z) => {
       axios
@@ -56,11 +69,39 @@ export class Provider extends Component {
         });
     },
 
+    makePurchaseList: () => {
+      let tempArray = [];
+      let productArray = [];
+      let quantityArray = [];
+      let priceArray = [];
+      if (sessionStorage.length > 0) {
+        productArray = sessionStorage.getItem("productArray").split(",");
+        quantityArray = sessionStorage.getItem("quantityArray").split(",");
+        priceArray = sessionStorage.getItem("priceArray").split(",");
+        for (let i = 0; i < productArray.length; i++) {
+          tempArray.push({
+            name: productArray[i],
+            quantity: quantityArray[i],
+            price: priceArray[i]
+          });
+        }
+      }
+      this.setState({ purchaseList: tempArray });
+    },
+
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
   componentDidMount() {
     this.state.apiQuery("products", "/tragos", "/vinos");
+    if (sessionStorage.length > 0) {
+      this.setState({
+        productArray: sessionStorage.getItem("productArray").split(","),
+        quantityArray: sessionStorage.getItem("quantityArray").split(","),
+        priceArray: sessionStorage.getItem("priceArray").split(",")
+      })
+    }
+    this.state.makePurchaseList();
   }
 
   render() {
