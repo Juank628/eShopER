@@ -22,8 +22,10 @@ const reducer = (state, action) => {
         state.quantityArray[addProductIndex]++;
         sessionStorage.setItem("quantityArray", state.quantityArray);
       }
-      state.makePurchaseList();
-      break;
+      return {
+        ...state,
+        purchaseList: state.makePurchaseList()
+      }
 
     case "SUB_PRODUCT":
       let subProductIndex = state.productArray.indexOf(action.productName);
@@ -43,8 +45,10 @@ const reducer = (state, action) => {
           sessionStorage.setItem("quantityArray", state.quantityArray);
         }
       }
-      state.makePurchaseList();
-      break;
+      return {
+        ...state,
+        purchaseList: state.makePurchaseList()
+      }
 
     default:
       console.log("NO ACTION");
@@ -69,6 +73,18 @@ export class Provider extends Component {
         });
     },
 
+    getData: () => {
+      this.state.apiQuery("products", "/tragos", "/vinos");
+      if (sessionStorage.length > 0) {
+        this.setState({
+          productArray: sessionStorage.getItem("productArray").split(","),
+          quantityArray: sessionStorage.getItem("quantityArray").split(","),
+          priceArray: sessionStorage.getItem("priceArray").split(",")
+        });
+      }
+      this.setState({purchaseList: this.state.makePurchaseList()})
+    },
+
     makePurchaseList: () => {
       let tempArray = [];
       let productArray = [];
@@ -86,25 +102,19 @@ export class Provider extends Component {
           });
         }
       }
-      this.setState({ purchaseList: tempArray });
+
+      return tempArray;
     },
 
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
   componentDidMount() {
-    this.state.apiQuery("products", "/tragos", "/vinos");
-    if (sessionStorage.length > 0) {
-      this.setState({
-        productArray: sessionStorage.getItem("productArray").split(","),
-        quantityArray: sessionStorage.getItem("quantityArray").split(","),
-        priceArray: sessionStorage.getItem("priceArray").split(",")
-      })
-    }
-    this.state.makePurchaseList();
+    this.state.getData();
   }
 
   render() {
+
     return (
       <Context.Provider value={this.state}>
         {this.props.children}

@@ -5,7 +5,7 @@ import { Consumer } from "../context";
 class ProductCard extends Component {
 
   clickAdd = (dispatch, name, price) => {
-      dispatch({type: 'ADD_PRODUCT', productName: name, productPrice: price});
+    dispatch({type: 'ADD_PRODUCT', productName: name, productPrice: price});
   };
 
   clickSub = (dispatch, name) => {

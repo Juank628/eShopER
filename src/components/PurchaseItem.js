@@ -78,7 +78,7 @@ class PurchaseItem extends Component {
                           <input
                             type="number"
                             className="text-center form-control form-control-sm col-3"
-                            Value={quantity}
+                            placeholder={quantity}
                           />
                           <button
                             type="button"
