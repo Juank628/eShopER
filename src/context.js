@@ -15,9 +15,9 @@ const reducer = (state, action) => {
         state.productArray.push(action.productName);
         state.quantityArray.push(1);
         state.priceArray.push(action.productPrice);
-        sessionStorage.setItem("productArray", state.productArray);
-        sessionStorage.setItem("quantityArray", state.quantityArray);
-        sessionStorage.setItem("priceArray", state.priceArray);
+        state.familyArray.push(action.productFamily);
+        state.subFamilyArray.push(action.productSubFamily);
+        state.copyStateToStorage();
       } else {
         state.quantityArray[addProductIndex]++;
         sessionStorage.setItem("quantityArray", state.quantityArray);
@@ -25,21 +25,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         purchaseList: state.makePurchaseList()
-      }
+      };
 
     case "SUB_PRODUCT":
       let subProductIndex = state.productArray.indexOf(action.productName);
       if (subProductIndex !== -1) {
         if (state.quantityArray[subProductIndex] <= 1) {
-          state.productArray.splice(subProductIndex, 1);
-          state.quantityArray.splice(subProductIndex, 1);
-          state.priceArray.splice(subProductIndex, 1);
-          sessionStorage.setItem("productArray", state.productArray);
-          sessionStorage.setItem("quantityArray", state.quantityArray);
-          sessionStorage.setItem("priceArray", state.priceArray);
-          if (state.productArray.length < 1) {
-            sessionStorage.clear();
-          }
+          state.deleteProduct(subProductIndex);
+          state.copyStateToStorage();
+          state.clearIfEmpty();
         } else {
           state.quantityArray[subProductIndex]--;
           sessionStorage.setItem("quantityArray", state.quantityArray);
@@ -48,7 +42,17 @@ const reducer = (state, action) => {
       return {
         ...state,
         purchaseList: state.makePurchaseList()
-      }
+      };
+
+    case "DEL_PRODUCT":
+      let delProductIndex = state.productArray.indexOf(action.productName);
+      state.deleteProduct(delProductIndex);
+      state.copyStateToStorage();
+      state.clearIfEmpty();
+      return {
+        ...state,
+        purchaseList: state.makePurchaseList()
+      };
 
     default:
       console.log("NO ACTION");
@@ -61,6 +65,8 @@ export class Provider extends Component {
     productArray: [],
     quantityArray: [],
     priceArray: [],
+    familyArray: [],
+    subFamilyArray: [],
     purchaseList: [],
 
     apiQuery: (x, y, z) => {
@@ -79,10 +85,12 @@ export class Provider extends Component {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),
           quantityArray: sessionStorage.getItem("quantityArray").split(","),
-          priceArray: sessionStorage.getItem("priceArray").split(",")
+          priceArray: sessionStorage.getItem("priceArray").split(","),
+          familyArray: sessionStorage.getItem("familyArray").split(","),
+          subFamilyArray: sessionStorage.getItem("subFamilyArray").split(",")
         });
       }
-      this.setState({purchaseList: this.state.makePurchaseList()})
+      this.setState({ purchaseList: this.state.makePurchaseList() });
     },
 
     makePurchaseList: () => {
@@ -90,20 +98,48 @@ export class Provider extends Component {
       let productArray = [];
       let quantityArray = [];
       let priceArray = [];
+      let familyArray = [];
+      let subFamilyArray = [];
       if (sessionStorage.length > 0) {
         productArray = sessionStorage.getItem("productArray").split(",");
         quantityArray = sessionStorage.getItem("quantityArray").split(",");
         priceArray = sessionStorage.getItem("priceArray").split(",");
+        familyArray = sessionStorage.getItem("familyArray").split(",");
+        subFamilyArray = sessionStorage.getItem("subFamilyArray").split(",");
         for (let i = 0; i < productArray.length; i++) {
           tempArray.push({
             name: productArray[i],
             quantity: quantityArray[i],
-            price: priceArray[i]
+            price: priceArray[i],
+            family: familyArray[i],
+            subfamily: subFamilyArray[i]
           });
         }
       }
 
       return tempArray;
+    },
+
+    deleteProduct: storageIndex => {
+      this.state.productArray.splice(storageIndex, 1);
+      this.state.quantityArray.splice(storageIndex, 1);
+      this.state.priceArray.splice(storageIndex, 1);
+      this.state.familyArray.splice(storageIndex, 1);
+      this.state.subFamilyArray.splice(storageIndex, 1);
+    },
+
+    clearIfEmpty: () => {
+      if (this.state.productArray.length < 1) {
+        sessionStorage.clear();
+      }
+    },
+
+    copyStateToStorage: () => {
+      sessionStorage.setItem("productArray", this.state.productArray);
+      sessionStorage.setItem("quantityArray", this.state.quantityArray);
+      sessionStorage.setItem("priceArray", this.state.priceArray);
+      sessionStorage.setItem("familyArray", this.state.familyArray);
+      sessionStorage.setItem("subFamilyArray", this.state.subFamilyArray);
     },
 
     dispatch: action => this.setState(state => reducer(state, action))
@@ -114,7 +150,6 @@ export class Provider extends Component {
   }
 
   render() {
-
     return (
       <Context.Provider value={this.state}>
         {this.props.children}

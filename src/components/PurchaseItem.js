@@ -3,13 +3,16 @@ import PropTypes from "prop-types";
 import { Consumer } from "../context";
 
 class PurchaseItem extends Component {
-  
   clickAdd = (dispatch, name, price) => {
     dispatch({ type: "ADD_PRODUCT", productName: name, productPrice: price });
   };
 
   clickSub = (dispatch, name) => {
     dispatch({ type: "SUB_PRODUCT", productName: name });
+  };
+
+  clickDel = (dispatch, name) => {
+    dispatch({ type: "DEL_PRODUCT", productName: name });
   };
 
   render() {
@@ -95,6 +98,11 @@ class PurchaseItem extends Component {
                               "/img/icons/trash-red.png"
                             }
                             alt="not found"
+                            onClick={this.clickDel.bind(
+                              this,
+                              dispatch,
+                              name,
+                            )}
                           />
                         </form>
                       </div>
