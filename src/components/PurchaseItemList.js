@@ -10,6 +10,8 @@ export default class PurchaseItemList extends Component {
       <Consumer>
         {value => {
           return(
+          value.productArray.length > 0 ?
+          (
           <div className="cTotalAndPaySpace">
             <ul className="list-group">
               {value.purchaseList.map((item, i) => (
@@ -17,6 +19,10 @@ export default class PurchaseItemList extends Component {
               ))}
             </ul>
           </div>
+          ):
+          (
+            <p>Tu lista está vacía</p>
+          )
           );
         }}
       </Consumer>
