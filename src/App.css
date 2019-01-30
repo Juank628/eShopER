@@ -1,46 +1,22 @@
-
 /*********************************General styles***********************************/
-.cBgBlack{
-  background-color: black
+.cBgBlack {
+  background-color: black;
 }
 
-.cBgWhite{
-  background-color: white
+.cBgWhite {
+  background-color: white;
 }
 
-.cBlackTransparent{
-  background-color: rgba(0,0,0,0.5) !IMPORTANT
+.cBlackTransparent {
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-.cFontMono{
-  font-family: monospace
+.cFontMono {
+  font-family: monospace;
 }
 
-.cFontColorWhite{
-  color: white !IMPORTANT
-}
-
-.cNavBarSpace{
-  margin-top: 70px
-}
-
-.cNavBarHeight{
-  height: 56px;
-}
-
-.cNavBarLicores{
-  background-image: url("/img/products/tragos/licores.jpg");
-  font-size: 50px;
-}
-
-.cNavBarCigarros{
-  background-image: url("/img/products/cigarros/cigarros.jpg");
-  font-size: 50px;
-}
-
-.cNavBarTapas{
-  background-image: url("/img/products/tapas/tapas.jpg");
-  font-size: 50px;
+.cFontColorWhite {
+  color: white !important;
 }
 
 /********************************Components styles**********************************/
@@ -52,105 +28,146 @@
   font-size: 14px;
 }
 
-.cPurchaseListName{
+.cPurchaseListName {
   font-size: 15px;
-  font-weight: 700
+  font-weight: 700;
 }
 
-.cPurchaseListPrice{
+.cPurchaseListPrice {
   font-size: 12px;
 }
 
-.cPurchaseListSubTotal{
+.cPurchaseListSubTotal {
   font-size: 18px;
 }
 
-.cPurchaseListImg{
-  max-width: 100px
+.cPurchaseListImg {
+  max-width: 100px;
 }
 
-.cTotalAndPayTitle{
-  color: gray
+.cTotalAndPayTitle {
+  color: gray;
 }
 
-.cTotalAndPayPrice{
+.cTotalAndPayPrice {
   font-size: 40px;
-  font-weight: 700
+  font-weight: 700;
 }
 
-.cTotalAndPayBtn{
-  font-weight: 700
+.cTotalAndPayBtn {
+  font-weight: 700;
 }
 
+.cNavBarSpace {
+  margin-top: 70px;
+}
+
+.cNavBarHeight {
+  height: 56px;
+}
+
+.cNavBarBadge {
+  animation-name: badgeChange;
+  animation-duration: 0.8s;
+}
+
+.cNavBarLicores {
+  background-image: url("/img/products/tragos/licores.jpg");
+  font-size: 50px;
+}
+
+.cNavBarCigarros {
+  background-image: url("/img/products/cigarros/cigarros.jpg");
+  font-size: 50px;
+}
+
+.cNavBarTapas {
+  background-image: url("/img/products/tapas/tapas.jpg");
+  font-size: 50px;
+}
 
 /**********************************Media queries************************************/
 
 /* Very Small devices (landscape phones, 10px and up) */
 @media (min-width: 10px) {
-  .cFixed{
+  .cFixed {
     width: 95%;
     position: fixed;
     bottom: 0;
-    z-index: 100000
+    z-index: 100000;
   }
 
-  .cTotalAndPaySpace{
-    margin-bottom: 180px
+  .cTotalAndPaySpace {
+    margin-bottom: 180px;
   }
 }
 
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 576px) {
-  .cFixed{
+  .cFixed {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000
+    z-index: 100000;
   }
 
-  .cTotalAndPaySpace{
-    margin-bottom: 10px
+  .cTotalAndPaySpace {
+    margin-bottom: 10px;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .cFixed{
+  .cFixed {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000
+    z-index: 100000;
   }
 
-  .cTotalAndPaySpace{
-    margin-bottom: 10px
+  .cTotalAndPaySpace {
+    margin-bottom: 10px;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .cFixed{
+  .cFixed {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000
+    z-index: 100000;
   }
 
-  .cTotalAndPaySpace{
-    margin-bottom: 10px
+  .cTotalAndPaySpace {
+    margin-bottom: 10px;
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .cFixed{
+  .cFixed {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000
+    z-index: 100000;
   }
 
-  .cTotalAndPaySpace{
-    margin-bottom: 10px
+  .cTotalAndPaySpace {
+    margin-bottom: 10px;
+  }
+}
+
+/******************************Keyframes******************************/
+
+@keyframes badgeChange {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }

@@ -27,6 +27,7 @@ class Navbar extends Component {
         {value => {
           const { dispatch } = value;
           let totalQuantity = 0;
+          let badgeAnimation = value.badgeAnimation ? "cNavBarBadge" : null;
 
           for (let i = 0; i < value.quantityArray.length; i++) {
             totalQuantity = totalQuantity + parseInt(value.quantityArray[i]);
@@ -51,7 +52,10 @@ class Navbar extends Component {
 
               {showMenu && totalQuantity > 0 ? (
                 <span
-                  className="badge mr-auto badge-pill badge-danger mt-n3 ml-n1"
+                  className={
+                    "badge mr-auto badge-pill badge-danger mt-n3 ml-n1 " +
+                    badgeAnimation
+                  }
                   onClick={this.cartPressed}
                 >
                   {totalQuantity}

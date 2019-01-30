@@ -22,9 +22,11 @@ const reducer = (state, action) => {
         state.quantityArray[addProductIndex]++;
         sessionStorage.setItem("quantityArray", state.quantityArray);
       }
+      state.resetBadgeAnimation();
       return {
         ...state,
-        purchaseList: state.makePurchaseList()
+        purchaseList: state.makePurchaseList(),
+        badgeAnimation: true
       };
 
     case "SUB_PRODUCT":
@@ -39,9 +41,11 @@ const reducer = (state, action) => {
           sessionStorage.setItem("quantityArray", state.quantityArray);
         }
       }
+      state.resetBadgeAnimation();
       return {
         ...state,
-        purchaseList: state.makePurchaseList()
+        purchaseList: state.makePurchaseList(),
+        badgeAnimation: true
       };
 
     case "DEL_PRODUCT":
@@ -68,6 +72,7 @@ export class Provider extends Component {
     familyArray: [],
     subFamilyArray: [],
     purchaseList: [],
+    badgeAnimation: false,
 
     apiQuery: (x, y, z) => {
       axios
@@ -140,6 +145,15 @@ export class Provider extends Component {
       sessionStorage.setItem("priceArray", this.state.priceArray);
       sessionStorage.setItem("familyArray", this.state.familyArray);
       sessionStorage.setItem("subFamilyArray", this.state.subFamilyArray);
+    },
+
+    resetBadgeAnimation: () => {
+      setTimeout(
+        function() {
+          this.setState({ badgeAnimation: false });
+        }.bind(this),
+        2000
+      );
     },
 
     dispatch: action => this.setState(state => reducer(state, action))
