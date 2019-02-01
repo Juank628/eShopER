@@ -77,7 +77,7 @@ export class Provider extends Component {
     apiQuery: (x, y, z) => {
       axios
         .get(
-          `http://127.0.0.1/eShopBackend/eShopBackend/public/api/${x}${y}${z}`
+          `http://192.168.43.124/eShopBackend/eShopBackend/public/api/${x}${y}${z}`
         )
         .then(res => {
           this.setState({ products: res.data });
@@ -86,7 +86,7 @@ export class Provider extends Component {
 
     getData: () => {
       this.state.apiQuery("products", "/tragos", "/vinos");
-      if (sessionStorage.length > 0) {
+      if (sessionStorage.length > 4) {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),
           quantityArray: sessionStorage.getItem("quantityArray").split(","),
@@ -105,7 +105,7 @@ export class Provider extends Component {
       let priceArray = [];
       let familyArray = [];
       let subFamilyArray = [];
-      if (sessionStorage.length > 0) {
+      if (sessionStorage.length > 4) {
         productArray = sessionStorage.getItem("productArray").split(",");
         quantityArray = sessionStorage.getItem("quantityArray").split(",");
         priceArray = sessionStorage.getItem("priceArray").split(",");
@@ -135,7 +135,11 @@ export class Provider extends Component {
 
     clearIfEmpty: () => {
       if (this.state.productArray.length < 1) {
-        sessionStorage.clear();
+        sessionStorage.removeItem('productArray');
+        sessionStorage.removeItem('quantityArray');
+        sessionStorage.removeItem('priceArray');
+        sessionStorage.removeItem('familyArray');
+        sessionStorage.removeItem('subFamilyArray');
       }
     },
 

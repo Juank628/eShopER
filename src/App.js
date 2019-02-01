@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar.js";
 import ProductsCardList from "./components/ProductsCardList.js";
 import PurchaseItemList from "./components/PurchaseItemList";
 import TotalAndPay from "./components/TotalAndPay";
+import Chat from "./components/Chat"
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
                     </div>
                     <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                       <TotalAndPay />
+                      <Chat />
                     </div>
                   </div>
                 </div>
