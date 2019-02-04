@@ -77,7 +77,7 @@ export class Provider extends Component {
     apiQuery: (x, y, z) => {
       axios
         .get(
-          `http://192.168.43.124/eShopBackend/eShopBackend/public/api/${x}${y}${z}`
+          `https://elroblemarket.com/laravelApp/eShopBackend/public/api/${x}${y}${z}`
         )
         .then(res => {
           this.setState({ products: res.data });
