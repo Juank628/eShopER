@@ -11,7 +11,7 @@ export default class TotalAndPay extends Component {
 
     axios
       .post(
-        "https://elroblemarket.com/laravelApp/eShopBackend/public/api/order",
+        "/api/order",
         { data }
       )
       .then(res => {
