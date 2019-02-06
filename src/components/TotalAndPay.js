@@ -3,10 +3,12 @@ import { Consumer } from "../context";
 import axios from "axios";
 
 export default class TotalAndPay extends Component {
-  sendOrder = () => {
+  sendOrder = (purchaseList) => {
     const data = {
-      ip: "192,168,1,99",
-      orderNo: "0101"
+      orderNo: "0101",
+      phone: "9898",
+      name: "ReactS",
+      purchaseList: JSON.stringify(purchaseList)
     };
 
     axios
@@ -17,7 +19,8 @@ export default class TotalAndPay extends Component {
       .then(res => {
         console.log(res);
       });
-    console.log("send");
+
+      console.log(JSON.stringify(purchaseList))
   };
 
   render() {
@@ -38,7 +41,7 @@ export default class TotalAndPay extends Component {
               <button
                 type="button"
                 className="mt-2 mb-3 btn btn-success btn-lg btn-block"
-                onClick={this.sendOrder}
+                onClick={this.sendOrder.bind(this, value.purchaseList)}
               >
                 <span className="cTotalAndPayBtn">Pedir</span>
               </button>
