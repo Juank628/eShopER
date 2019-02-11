@@ -3,55 +3,23 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { Provider } from "./context";
-import Navbar from "./components/Navbar.js";
-import ProductsCardList from "./components/ProductsCardList.js";
-import PurchaseItemList from "./components/PurchaseItemList";
-import TotalAndPay from "./components/TotalAndPay";
-import Chat from "./components/Chat";
+import MainView from "./components/MainView";
+import OrderSent from "./components/pages/OrderSent"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 class App extends Component {
-  state = {
-    showPurchaseList: false,
-    showMenu: true
-  };
-
-  cartPressed = () => {
-    this.setState({
-      showPurchaseList: !this.state.showPurchaseList
-    });
-  };
-
   render() {
-    const { showPurchaseList } = this.state;
-
     return (
       <Provider>
+        <Router>
         <div className="App">
-          <Navbar cartPressedHandler={this.cartPressed} />
-          <div className="container col-12 cNavBarSpace">
-            <div className="row">
-              {!showPurchaseList ? (
-                <div className="col-12 justify-content-center">
-                  <ProductsCardList />
-                </div>
-              ) : null}
-
-              {showPurchaseList ? (
-                <div className="col-12">
-                  <div className="row">
-                    <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                      <PurchaseItemList />
-                    </div>
-                    <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                      <TotalAndPay />
-                      <Chat />
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-          </div>
+          <Switch>
+            <Route exact path="/" component={MainView} />
+            <Route exact path="/sent" component={OrderSent} />
+          </Switch>  
         </div>
+        </Router>
       </Provider>
     );
   }

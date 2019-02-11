@@ -4,15 +4,9 @@ import NavbarItem from "./NavbarItem";
 import NavbarSubItem from "./NavbarSubItem";
 
 class Navbar extends Component {
-  state = {
-    showMenu: true
-  };
 
-  cartPressed = () => {
-    this.props.cartPressedHandler();
-    this.setState({
-      showMenu: !this.state.showMenu
-    });
+  cartPressed = (dispatch) => {
+    dispatch({type: "SHOW_PURCHASE_LIST"});
   };
 
   linkPressed = (dispatch, family, subfamily) => {
@@ -20,8 +14,6 @@ class Navbar extends Component {
   };
 
   render() {
-    let { showMenu } = this.state;
-
     return (
       <Consumer>
         {value => {
@@ -37,10 +29,10 @@ class Navbar extends Component {
             <nav className="navbar navbar-dark fixed-top cBgBlack cNavBarHeight">
               <div>
                 <img
-                  onClick={this.cartPressed}
+                  onClick={this.cartPressed.bind(this, dispatch)}
                   className="mr-auto"
                   src={
-                    showMenu
+                    !value.showPurchaseList
                       ? window.location.origin +
                         "/img/icons/shopping-cart-white.png"
                       : window.location.origin +
@@ -50,7 +42,7 @@ class Navbar extends Component {
                 />
               </div>
 
-              {showMenu && totalQuantity > 0 ? (
+              {!value.showPurchaseList && totalQuantity > 0 ? (
                 <span
                   className={
                     "badge mr-auto badge-pill badge-danger mt-n3 ml-n1 " +
@@ -62,7 +54,7 @@ class Navbar extends Component {
                 </span>
               ) : null}
 
-              {showMenu ? (
+              {!value.showPurchaseList ? (
                 <React.Fragment>
                   <button
                     className="navbar-toggler"

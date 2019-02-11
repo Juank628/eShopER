@@ -58,6 +58,12 @@ const reducer = (state, action) => {
         purchaseList: state.makePurchaseList()
       };
 
+    case "SHOW_PURCHASE_LIST":
+      return{
+        ...state,
+        showPurchaseList: !state.showPurchaseList
+      }
+
     default:
       console.log("NO ACTION");
   }
@@ -74,6 +80,7 @@ export class Provider extends Component {
     purchaseList: [],
     badgeAnimation: false,
     loadingProducts: false,
+    showPurchaseList: false,
 
     apiQuery: (x, y, z) => {
       this.setState({ loadingProducts: true });
