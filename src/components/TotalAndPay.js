@@ -4,8 +4,7 @@ import axios from "axios";
 
 export default class TotalAndPay extends Component {
   state = {
-    sending: false,
-    sent: false
+    sending: false
   };
 
   sendOrder = purchaseList => {
@@ -18,9 +17,8 @@ export default class TotalAndPay extends Component {
     this.setState({ sending: true });
 
     axios.post("/api/order", { data }).then(res => {
-      if (200 <= res.status && res.status <= 299) {
-        this.setState({ sent: true });
-        alert("Tu pedido ha sido enviado");
+      if (res.status > 199 && res.status < 300) {
+        console.log("sended ok");
       }
       this.setState({ sending: false });
     });
@@ -41,6 +39,7 @@ export default class TotalAndPay extends Component {
               <br />
               <span className="cTotalAndPayPrice">S/{totalPrice}</span>
               <br />
+
               {this.state.sending ? (
                 <button
                   type="button"

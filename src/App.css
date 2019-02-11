@@ -19,12 +19,6 @@
   color: white !important;
 }
 
-.cVerticalCenter{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 /********************************Components styles**********************************/
 .cCardTitle {
   font-size: 15px;
@@ -64,11 +58,6 @@
   font-weight: 700;
 }
 
-.cTotalAndPaySentTxt {
-  font-size: 15px;
-  font-weight: 700;
-}
-
 .cNavBarSpace {
   margin-top: 70px;
 }
@@ -105,7 +94,7 @@
     width: 95%;
     position: fixed;
     bottom: 0;
-    z-index: 10000;
+    z-index: 100000;
   }
 
   .cTotalAndPaySpace {
@@ -117,7 +106,7 @@
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 544px and up) */
 @media (min-width: 576px) {
   .cFixed {
     width: 30%;

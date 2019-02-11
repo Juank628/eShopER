@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar.js";
 import ProductsCardList from "./components/ProductsCardList.js";
 import PurchaseItemList from "./components/PurchaseItemList";
 import TotalAndPay from "./components/TotalAndPay";
-import Chat from "./components/Chat";
+import Chat from "./components/Chat"
 
 class App extends Component {
   state = {
