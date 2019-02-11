@@ -3,24 +3,27 @@ import { Consumer } from "../context";
 import axios from "axios";
 
 export default class TotalAndPay extends Component {
-  sendOrder = (purchaseList) => {
+  state = {
+    sending: false,
+    sent: false
+  };
+
+  sendOrder = purchaseList => {
     const data = {
-      orderNo: "0101",
       phone: "9898",
       name: "ReactS",
       purchaseList: JSON.stringify(purchaseList)
     };
 
-    axios
-      .post(
-        "/api/order",
-        { data }
-      )
-      .then(res => {
-        console.log(res);
-      });
+    this.setState({ sending: true });
 
-      console.log(JSON.stringify(purchaseList))
+    axios.post("/api/order", { data }).then(res => {
+      if (200 <= res.status && res.status <= 299) {
+        this.setState({ sent: true });
+        alert("Tu pedido ha sido enviado");
+      }
+      this.setState({ sending: false });
+    });
   };
 
   render() {
@@ -38,13 +41,28 @@ export default class TotalAndPay extends Component {
               <br />
               <span className="cTotalAndPayPrice">S/{totalPrice}</span>
               <br />
-              <button
-                type="button"
-                className="mt-2 mb-3 btn btn-success btn-lg btn-block"
-                onClick={this.sendOrder.bind(this, value.purchaseList)}
-              >
-                <span className="cTotalAndPayBtn">Pedir</span>
-              </button>
+              {this.state.sending ? (
+                <button
+                  type="button"
+                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
+                  disabled
+                >
+                  <span
+                    className="spinner-grow float-left"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  <span>Enviando...</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
+                  onClick={this.sendOrder.bind(this, value.purchaseList)}
+                >
+                  <span className="cTotalAndPayBtnTxt">Pedir</span>
+                </button>
+              )}
             </div>
           );
         }}

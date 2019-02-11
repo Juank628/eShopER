@@ -43,7 +43,7 @@ class ProductCard extends Component {
               />
               <div className="card-body px-0">
                 <h5 className="card-title cCardTitle">{name}</h5>
-                <h5 className="card-text cCardPrice">{price}</h5>
+                <h5 className="card-text cCardPrice">S/{price}</h5>
                 <button
                   className="btn btn-sm btn-success mr-2 cFontMono"
                   onClick={this.clickAdd.bind(this, dispatch, name, price, family, subfamily)}

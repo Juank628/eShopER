@@ -19,6 +19,12 @@
   color: white !important;
 }
 
+.cVerticalCenter{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /********************************Components styles**********************************/
 .cCardTitle {
   font-size: 15px;
@@ -54,7 +60,12 @@
   font-weight: 700;
 }
 
-.cTotalAndPayBtn {
+.cTotalAndPayBtnTxt {
+  font-weight: 700;
+}
+
+.cTotalAndPaySentTxt {
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -94,15 +105,19 @@
     width: 95%;
     position: fixed;
     bottom: 0;
-    z-index: 100000;
+    z-index: 10000;
   }
 
   .cTotalAndPaySpace {
     margin-bottom: 180px;
   }
+
+  .cTotalAndPayBtn {
+    width: 50%
+  }
 }
 
-/* Small devices (landscape phones, 544px and up) */
+/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .cFixed {
     width: 30%;
@@ -113,6 +128,10 @@
 
   .cTotalAndPaySpace {
     margin-bottom: 10px;
+  }
+
+  .cTotalAndPayBtn {
+    width: 100%
   }
 }
 
@@ -128,6 +147,10 @@
   .cTotalAndPaySpace {
     margin-bottom: 10px;
   }
+
+  .cTotalAndPayBtn {
+    width: 100%
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -142,6 +165,10 @@
   .cTotalAndPaySpace {
     margin-bottom: 10px;
   }
+
+  .cTotalAndPayBtn {
+    width: 100%
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -155,6 +182,10 @@
 
   .cTotalAndPaySpace {
     margin-bottom: 10px;
+  }
+
+  .cTotalAndPayBtn {
+    width: 100%
   }
 }
 
