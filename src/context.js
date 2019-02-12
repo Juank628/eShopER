@@ -71,6 +71,8 @@ export class Provider extends Component {
     purchaseList: [],
     badgeAnimation: false,
     loadingCards: false,
+    sendingOrder: false,
+    orderSent: false,
 
     apiQuery: (x, y, z) => {
       this.setState({ loadingCards: true });
@@ -155,6 +157,26 @@ export class Provider extends Component {
         2000
       );
     },
+
+    sendOrder : () => {
+      const data = {
+        phone: "No phone",
+        name: "No name",
+        purchaseList: JSON.stringify(this.state.purchaseList)
+      };
+  
+      this.setState({ sendingOrder: true });
+  
+      axios.post("/api/order", { data }).then(res => {
+        if (res.status > 199 && res.status < 300) {
+          console.log("sent ok");
+          this.setState({orderSent: true})
+        }
+        this.setState({ sendingOrder: false });
+      });
+    },
+
+
 
     dispatch: action => this.setState(state => reducer(state, action))
   };

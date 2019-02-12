@@ -12,7 +12,6 @@ import Chat from "./components/Chat";
 class App extends Component {
   state = {
     showPurchaseList: false,
-    orderSent: false
   };
 
   cartPressed = () => {
@@ -21,14 +20,8 @@ class App extends Component {
     });
   };
 
-  orderSent = () => {
-    this.setState({
-      orderSent: true
-    });
-  };
-
   render() {
-    const { showPurchaseList, orderSent } = this.state;
+    const { showPurchaseList } = this.state;
 
     return (
       <Provider>
@@ -46,10 +39,10 @@ class App extends Component {
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                      {orderSent ? null : <PurchaseItemList />}
+                      <PurchaseItemList />
                     </div>
                     <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                      <TotalAndPay orderSentHandler={this.orderSent} />
+                      <TotalAndPay />
                       <Chat />
                     </div>
                   </div>

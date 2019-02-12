@@ -1,30 +1,8 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import axios from "axios";
 
 export default class TotalAndPay extends Component {
-  state = {
-    sending: false
-  };
-
-  sendOrder = purchaseList => {
-    const data = {
-      phone: "No phone",
-      name: "No name",
-      purchaseList: JSON.stringify(purchaseList)
-    };
-
-    this.setState({ sending: true });
-
-    axios.post("/api/order", { data }).then(res => {
-      if (res.status > 199 && res.status < 300) {
-        console.log("sent ok");
-        this.props.orderSentHandler();
-      }
-      this.setState({ sending: false });
-    });
-  };
-
+  
   render() {
     return (
       <Consumer>
@@ -41,7 +19,7 @@ export default class TotalAndPay extends Component {
               <span className="cTotalAndPayPrice">S/{totalPrice}</span>
               <br />
 
-              {this.state.sending ? (
+              {value.sendingOrder ? (
                 <button
                   type="button"
                   className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
@@ -58,7 +36,7 @@ export default class TotalAndPay extends Component {
                 <button
                   type="button"
                   className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
-                  onClick={this.sendOrder.bind(this, value.purchaseList)}
+                  onClick={value.sendOrder}
                 >
                   <span className="cTotalAndPayBtnTxt">Pedir</span>
                 </button>
