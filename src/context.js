@@ -73,15 +73,14 @@ export class Provider extends Component {
     subFamilyArray: [],
     purchaseList: [],
     badgeAnimation: false,
+    loadingCards: false,
 
     apiQuery: (x, y, z) => {
-      axios
-        .get(
-          `/api/${x}${y}${z}`
-        )
-        .then(res => {
-          this.setState({ products: res.data });
-        });
+      this.setState({ loadingCards: true });
+      axios.get(`/api/${x}${y}${z}`).then(res => {
+        this.setState({ products: res.data });
+        this.setState({ loadingCards: false });
+      });
     },
 
     getData: () => {
@@ -135,11 +134,11 @@ export class Provider extends Component {
 
     clearIfEmpty: () => {
       if (this.state.productArray.length < 1) {
-        sessionStorage.removeItem('productArray');
-        sessionStorage.removeItem('quantityArray');
-        sessionStorage.removeItem('priceArray');
-        sessionStorage.removeItem('familyArray');
-        sessionStorage.removeItem('subFamilyArray');
+        sessionStorage.removeItem("productArray");
+        sessionStorage.removeItem("quantityArray");
+        sessionStorage.removeItem("priceArray");
+        sessionStorage.removeItem("familyArray");
+        sessionStorage.removeItem("subFamilyArray");
       }
     },
 

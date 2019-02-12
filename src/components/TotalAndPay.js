@@ -18,7 +18,7 @@ export default class TotalAndPay extends Component {
 
     axios.post("/api/order", { data }).then(res => {
       if (res.status > 199 && res.status < 300) {
-        console.log("sended ok");
+        console.log("sent ok");
       }
       this.setState({ sending: false });
     });
