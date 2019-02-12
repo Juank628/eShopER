@@ -91,6 +91,13 @@
   font-size: 50px;
 }
 
+.cSentMessageImg {
+  margin-top: 200px;
+  text-align: center;
+  animation-name: sentMessageImg;
+  animation-duration: 0.8s;
+}
+
 /**********************************Media queries************************************/
 
 /* Very Small devices (landscape phones, 10px and up) */
@@ -186,6 +193,18 @@
 /******************************Keyframes******************************/
 
 @keyframes badgeChange {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sentMessageImg{
   0% {
     transform: scale(0.1);
   }
