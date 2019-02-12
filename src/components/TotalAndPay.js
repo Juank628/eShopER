@@ -9,8 +9,8 @@ export default class TotalAndPay extends Component {
 
   sendOrder = purchaseList => {
     const data = {
-      phone: "9898",
-      name: "ReactS",
+      phone: "No phone",
+      name: "No name",
       purchaseList: JSON.stringify(purchaseList)
     };
 
@@ -19,6 +19,7 @@ export default class TotalAndPay extends Component {
     axios.post("/api/order", { data }).then(res => {
       if (res.status > 199 && res.status < 300) {
         console.log("sent ok");
+        this.props.orderSentHandler();
       }
       this.setState({ sending: false });
     });

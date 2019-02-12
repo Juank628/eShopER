@@ -5,9 +5,6 @@ const Context = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "READ_CARDS":
-      state.apiQuery("products", action.y, action.z);
-      break;
 
     case "ADD_PRODUCT":
       let addProductIndex = state.productArray.indexOf(action.productName);
@@ -165,6 +162,7 @@ export class Provider extends Component {
   componentDidMount() {
     this.state.getData();
   }
+
 
   render() {
     return (

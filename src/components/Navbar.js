@@ -15,17 +15,12 @@ class Navbar extends Component {
     });
   };
 
-  linkPressed = (dispatch, family, subfamily) => {
-    dispatch({ type: "READ_CARDS", x: "/products", y: family, z: subfamily });
-  };
-
   render() {
     let { showMenu } = this.state;
 
     return (
       <Consumer>
         {value => {
-          const { dispatch } = value;
           let totalQuantity = 0;
           let badgeAnimation = value.badgeAnimation ? "cNavBarBadge" : null;
 
@@ -98,45 +93,45 @@ class Navbar extends Component {
                         >
                           <NavbarSubItem
                             itemName="Cervezas"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               "/cervezas"
                             )}
                           />
                           <NavbarSubItem
                             itemName="Rones"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               "/rones"
                             )}
                           />
                           <NavbarSubItem
                             itemName="Piscos"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               "/piscos"
                             )}
                           />
                           <NavbarSubItem
                             itemName="Vinos"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               "/vinos"
                             )}
                           />
                           <NavbarSubItem
                             itemName="Otros"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               "/otros"
                             )}
@@ -144,9 +139,9 @@ class Navbar extends Component {
                           <div className="dropdown-divider" />
                           <NavbarSubItem
                             itemName="Todos"
-                            onClick={this.linkPressed.bind(
+                            onClick={value.apiQuery.bind(
                               this,
-                              dispatch,
+                              "/products",
                               "/tragos",
                               ""
                             )}
@@ -157,9 +152,9 @@ class Navbar extends Component {
                       <NavbarItem
                         itemName="Cigarros"
                         itemClass="cNavBarCigarros"
-                        onClick={this.linkPressed.bind(
+                        onClick={value.apiQuery.bind(
                           this,
-                          dispatch,
+                          "products",
                           "/cigarros",
                           ""
                         )}
@@ -167,9 +162,9 @@ class Navbar extends Component {
                       <NavbarItem
                         itemName="Tapas"
                         itemClass="cNavBarTapas"
-                        onClick={this.linkPressed.bind(
+                        onClick={value.apiQuery.bind(
                           this,
-                          dispatch,
+                          "/products",
                           "/tapas",
                           ""
                         )}

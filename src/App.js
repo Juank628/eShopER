@@ -7,12 +7,12 @@ import Navbar from "./components/Navbar.js";
 import ProductsCardList from "./components/ProductsCardList.js";
 import PurchaseItemList from "./components/PurchaseItemList";
 import TotalAndPay from "./components/TotalAndPay";
-import Chat from "./components/Chat"
+import Chat from "./components/Chat";
 
 class App extends Component {
   state = {
     showPurchaseList: false,
-    showMenu: true
+    orderSent: false
   };
 
   cartPressed = () => {
@@ -21,8 +21,14 @@ class App extends Component {
     });
   };
 
+  orderSent = () => {
+    this.setState({
+      orderSent: true
+    });
+  };
+
   render() {
-    const { showPurchaseList } = this.state;
+    const { showPurchaseList, orderSent } = this.state;
 
     return (
       <Provider>
@@ -40,10 +46,10 @@ class App extends Component {
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                      <PurchaseItemList />
+                      {orderSent ? null : <PurchaseItemList />}
                     </div>
                     <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                      <TotalAndPay />
+                      <TotalAndPay orderSentHandler={this.orderSent} />
                       <Chat />
                     </div>
                   </div>
