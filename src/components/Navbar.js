@@ -30,22 +30,24 @@ class Navbar extends Component {
 
           return (
             <nav className="navbar navbar-dark fixed-top cBgBlack cNavBarHeight">
-              <div>
-                <img
-                  onClick={this.cartPressed}
-                  className="mr-auto"
-                  src={
-                    showMenu
-                      ? window.location.origin +
-                        "/img/icons/shopping-cart-white.png"
-                      : window.location.origin +
-                        "/img/icons/left-arrow-key-white.png"
-                  }
-                  alt="not found"
-                />
-              </div>
+              {!value.orderSent ? (
+                <div>
+                  <img
+                    onClick={this.cartPressed}
+                    className="mr-auto"
+                    src={
+                      showMenu
+                        ? window.location.origin +
+                          "/img/icons/shopping-cart-white.png"
+                        : window.location.origin +
+                          "/img/icons/left-arrow-key-white.png"
+                    }
+                    alt="not found"
+                  />
+                </div>
+              ) : null}
 
-              {showMenu && totalQuantity > 0 ? (
+              {showMenu && totalQuantity > 0 && !value.orderSent ? (
                 <span
                   className={
                     "badge mr-auto badge-pill badge-danger mt-n3 ml-n1 " +
@@ -57,7 +59,7 @@ class Navbar extends Component {
                 </span>
               ) : null}
 
-              {showMenu ? (
+              {showMenu && !value.orderSent ? (
                 <React.Fragment>
                   <button
                     className="navbar-toggler"

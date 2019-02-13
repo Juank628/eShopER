@@ -17,7 +17,7 @@ export default class MainView extends Component {
     return (
       <Consumer>
         {value => {
-          return !value.orderSent ? (
+          return value.orderSent ? (
             <div className="cSentMessageImg">
               <div>
                 <img src="img/icons/checked.png" alt="not found" />
