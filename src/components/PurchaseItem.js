@@ -82,6 +82,7 @@ class PurchaseItem extends Component {
                             type="number"
                             className="text-center form-control form-control-sm col-3"
                             placeholder={quantity}
+                            disabled
                           />
                           <button
                             type="button"

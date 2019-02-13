@@ -24,6 +24,10 @@
   margin-top: 200px
 }
 
+li{
+  list-style: none
+}
+
 /********************************Components styles**********************************/
 .cCardTitle {
   font-size: 15px;
@@ -92,7 +96,7 @@
 }
 
 .cSentMessageImg {
-  margin-top: 200px;
+  margin-top: 150px;
   text-align: center;
   animation-name: sentMessageImg;
   animation-duration: 0.8s;
