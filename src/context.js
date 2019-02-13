@@ -5,7 +5,6 @@ const Context = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-
     case "ADD_PRODUCT":
       let addProductIndex = state.productArray.indexOf(action.productName);
       if (addProductIndex === -1) {
@@ -141,6 +140,22 @@ export class Provider extends Component {
       }
     },
 
+    resetPurchaseList: () => {
+      this.setState({
+        productArray: [],
+        quantityArray: [],
+        priceArray: [],
+        familyArray: [],
+        subFamilyArray: [],
+        purchaseList: []
+      });
+      sessionStorage.removeItem("productArray");
+      sessionStorage.removeItem("quantityArray");
+      sessionStorage.removeItem("priceArray");
+      sessionStorage.removeItem("familyArray");
+      sessionStorage.removeItem("subFamilyArray");
+    },
+
     copyStateToStorage: () => {
       sessionStorage.setItem("productArray", this.state.productArray);
       sessionStorage.setItem("quantityArray", this.state.quantityArray);
@@ -158,25 +173,24 @@ export class Provider extends Component {
       );
     },
 
-    sendOrder : () => {
+    sendOrder: () => {
       const data = {
         phone: "No phone",
         name: "No name",
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
-  
+
       this.setState({ sendingOrder: true });
-  
+
       axios.post("/api/order", { data }).then(res => {
         if (res.status > 199 && res.status < 300) {
           console.log("sent ok");
-          this.setState({orderSent: true})
+          this.setState({ orderSent: true });
+          this.state.resetPurchaseList();
         }
         this.setState({ sendingOrder: false });
       });
     },
-
-
 
     dispatch: action => this.setState(state => reducer(state, action))
   };
@@ -184,7 +198,6 @@ export class Provider extends Component {
   componentDidMount() {
     this.state.getData();
   }
-
 
   render() {
     return (
