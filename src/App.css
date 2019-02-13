@@ -24,6 +24,12 @@
   margin-top: 200px
 }
 
+.cChatTextLink {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
 li{
   list-style: none
 }

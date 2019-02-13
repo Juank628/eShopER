@@ -9,10 +9,15 @@ export default class MainView extends Component {
   render() {
     const { showPurchaseList } = this.props;
 
+    const openChat =()=>{
+      window["Tawk_API"].showWidget();
+      window["Tawk_API"].maximize();
+    }
+
     return (
       <Consumer>
         {value => {
-          return value.orderSent ? (
+          return !value.orderSent ? (
             <div className="cSentMessageImg">
               <div>
                 <img src="img/icons/checked.png" alt="not found" />
@@ -21,7 +26,7 @@ export default class MainView extends Component {
                 <ul className="col-10 col-sm-8 col-md-6 col-lg-6 col-xl-6 mx-auto">
                   <li className="text-center text-secondary mb-2">
                     <img src="img/icons/chat.png" alt="not found" className="mr-2" />
-                    Use nuestro chat para indicarnos la dirección de entrega
+                    Use nuestro <span className="cChatTextLink" onClick={openChat}>chat</span> para indicarnos la dirección de entrega
                   </li>
                   <li className="text-center text-secondary">
                     <img src="img/icons/whatsapp.png" alt="not found" className="mr-2" />
