@@ -30,6 +30,10 @@
   cursor: pointer;
 }
 
+.cChatSpace{
+  margin-bottom: 100px;
+}
+
 li{
   list-style: none
 }
@@ -40,7 +44,18 @@ li{
 }
 
 .cCardPrice {
-  font-size: 14px;
+  position: absolute;
+  top:30px;
+  margin-left: -15px;
+  padding: 3px;
+  background-color: rgba(53,168,63,1);
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cCardNameHeight {
+  height: 95px;
 }
 
 .cPurchaseListName {

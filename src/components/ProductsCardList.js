@@ -29,7 +29,7 @@ class ProductsCardList extends Component {
               </div>
             </div>
           ) : (
-            <div className="row justify-content-center">
+            <div className="row justify-content-center cChatSpace">
               {value.products.map((product, i) => (
                 <ProductCard key={i} product={product} />
               ))}

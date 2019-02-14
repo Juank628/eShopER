@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import { Consumer } from "../context";
 
 class ProductCard extends Component {
+  state = {
+    quantity: 0
+  };
+
   clickAdd = (dispatch, name, price, family, subfamily) => {
     dispatch({
       type: "ADD_PRODUCT",
@@ -36,26 +40,71 @@ class ProductCard extends Component {
                   "/" +
                   subfamily +
                   "/" +
-                  name.replace(/ /g,"") +
+                  name.replace(/ /g, "") +
                   ".jpg"
                 }
                 alt="not found"
               />
               <div className="card-body px-0">
-                <h5 className="card-title cCardTitle">{name}</h5>
-                <h5 className="card-text cCardPrice">S/{price}</h5>
-                <button
-                  className="btn btn-sm btn-success mr-2 cFontMono"
-                  onClick={this.clickAdd.bind(this, dispatch, name, price, family, subfamily)}
-                >
-                  +
-                </button>
-                <button
-                  className="btn btn-sm btn-danger cFontMono"
-                  onClick={this.clickSub.bind(this, dispatch, name)}
-                >
-                  -
-                </button>
+                <div className="cCardNameHeight">
+                  <h5 className="card-title cCardTitle">{name}</h5>
+                </div>
+
+                <div className="cCardPrice">
+                  <span>S/</span>
+                  <span>{price}</span>
+                </div>
+
+                {value.quantityArray[value.productArray.indexOf(name)] ===
+                undefined ? (
+                  <img
+                    src="img/icons/add-cart.png"
+                    alt="not found"
+                    className="float-right cCardCart"
+                    onClick={this.clickAdd.bind(
+                      this,
+                      dispatch,
+                      name,
+                      price,
+                      family,
+                      subfamily
+                    )}
+                  />
+                ) : (
+                  <form className="form-inline justify-content-center">
+                    <button
+                      className="btn btn-sm btn-success mr-1 cFontMono"
+                      type="button"
+                      onClick={this.clickAdd.bind(
+                        this,
+                        dispatch,
+                        name,
+                        price,
+                        family,
+                        subfamily
+                      )}
+                    >
+                      +
+                    </button>
+
+                    <input
+                      type="text"
+                      className="text-center form-control form-control-sm col-4"
+                      placeholder={
+                        value.quantityArray[value.productArray.indexOf(name)]
+                      }
+                      disabled
+                    />
+
+                    <button
+                      className="btn btn-sm btn-danger ml-1 cFontMono"
+                      type="button"
+                      onClick={this.clickSub.bind(this, dispatch, name)}
+                    >
+                      -
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           );

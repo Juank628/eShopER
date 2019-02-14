@@ -29,7 +29,7 @@ class Navbar extends Component {
           }
 
           return (
-            <nav className="navbar navbar-dark fixed-top cBgBlack cNavBarHeight">
+            <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
               {!value.orderSent ? (
                 <div>
                   <img
