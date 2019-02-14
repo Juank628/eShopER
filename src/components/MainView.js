@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ProductsCardList from "./ProductsCardList.js";
 import PurchaseItemList from "./PurchaseItemList";
 import TotalAndPay from "./TotalAndPay";
-import Chat from "./Chat";
 import { Consumer } from "../context.js";
 
 export default class MainView extends Component {
@@ -10,8 +9,7 @@ export default class MainView extends Component {
     const { showPurchaseList } = this.props;
 
     const openChat =()=>{
-      window["Tawk_API"].showWidget();
-      window["Tawk_API"].maximize();
+      window["LC_API"].open_chat_window();
     }
 
     return (
@@ -34,7 +32,6 @@ export default class MainView extends Component {
                   </li>
                 </ul>
               </div>
-              <Chat />
             </div>
           ) : (
             <div className="container col-12 cNavBarSpace">
@@ -53,7 +50,6 @@ export default class MainView extends Component {
                       </div>
                       <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                         <TotalAndPay />
-                        <Chat />
                       </div>
                     </div>
                   </div>

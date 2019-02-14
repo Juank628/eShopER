@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { Provider } from "./context";
 import Navbar from "./components/Navbar.js";
 import MainView from "./components/MainView";
+import LiveChat from "./components/LiveChat";
 
 class App extends Component {
   state = {
@@ -25,6 +26,7 @@ class App extends Component {
         <div className="App">
           <Navbar cartPressedHandler={this.cartPressed} />
           <MainView showPurchaseList={showPurchaseList} />
+          <LiveChat />
         </div>
       </Provider>
     );
