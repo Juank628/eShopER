@@ -74,15 +74,16 @@ export class Provider extends Component {
     orderSent: false,
 
     apiQuery: (x, y, z) => {
+      const apiURL = "https://elroblemarket.com/laravelApp/eShopBackend/public/api"
       this.setState({ loadingCards: true });
-      axios.get(`/api/${x}${y}${z}`).then(res => {
+      axios.get(`${apiURL}${x}${y}${z}`).then(res => {
         this.setState({ products: res.data });
         this.setState({ loadingCards: false });
       });
     },
 
     getData: () => {
-      this.state.apiQuery("products", "/tragos", "/vinos");
+      this.state.apiQuery("/products", "/tragos", "/vinos");
       if (sessionStorage.length > 4) {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),
@@ -179,10 +180,11 @@ export class Provider extends Component {
         name: "No name",
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
+      const apiURL = "https://elroblemarket.com/laravelApp/eShopBackend/public/api"
 
       this.setState({ sendingOrder: true });
 
-      axios.post("/api/order", { data }).then(res => {
+      axios.post(`${apiURL}/order`, { data }).then(res => {
         if (res.status > 199 && res.status < 300) {
           console.log("sent ok");
           this.setState({ orderSent: true });

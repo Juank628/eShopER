@@ -37,10 +37,10 @@ class Navbar extends Component {
                     className="mr-auto"
                     src={
                       showMenu
-                        ? window.location.origin +
-                          "/img/icons/shopping-cart-white.png"
-                        : window.location.origin +
-                          "/img/icons/left-arrow-key-white.png"
+                        ? 
+                          "img/icons/shopping-cart-white.png"
+                        :
+                          "img/icons/left-arrow-key-white.png"
                     }
                     alt="not found"
                   />

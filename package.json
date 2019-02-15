@@ -26,5 +26,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://elroblemarket.com/laravelApp/eShopBackend/public"
+  
+  "homepage": "https://elroblemarket.com/test6/build/"
 }

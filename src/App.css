@@ -102,17 +102,17 @@ li{
 }
 
 .cNavBarLicores {
-  background-image: url("/img/products/tragos/licores.jpg");
+  background-image: url("https://elroblemarket.com/test6/build/img/products/tragos/licores.jpg");
   font-size: 50px;
 }
 
 .cNavBarCigarros {
-  background-image: url("/img/products/cigarros/cigarros.jpg");
+  background-image: url("https://elroblemarket.com/test6/build/img/products/cigarros/cigarros.jpg");
   font-size: 50px;
 }
 
 .cNavBarTapas {
-  background-image: url("/img/products/tapas/tapas.jpg");
+  background-image: url("https://elroblemarket.com/test6/build/img/products/tapas/tapas.jpg");
   font-size: 50px;
 }
 

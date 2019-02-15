@@ -29,8 +29,7 @@ class PurchaseItem extends Component {
                     <img
                       className="card-img-top cPurchaseListImg"
                       src={
-                        window.location.origin +
-                        "/img/products/" +
+                        "img/products/" +
                         family +
                         "/" +
                         subfamily +
@@ -95,8 +94,7 @@ class PurchaseItem extends Component {
                           <img
                             className="ml-3"
                             src={
-                              window.location.origin +
-                              "/img/icons/trash-red.png"
+                              "img/icons/trash-red.png"
                             }
                             alt="not found"
                             onClick={this.clickDel.bind(

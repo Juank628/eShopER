@@ -34,8 +34,7 @@ class ProductCard extends Component {
               <img
                 className="card-img-top"
                 src={
-                  window.location.origin +
-                  "/img/products/" +
+                  "img/products/" +
                   family +
                   "/" +
                   subfamily +
