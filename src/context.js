@@ -74,7 +74,7 @@ export class Provider extends Component {
     orderSent: false,
 
     apiQuery: (x, y, z) => {
-      const apiURL = "https://elroblemarket.com/laravelApp/eShopBackend/public/api"
+      const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
       this.setState({ loadingCards: true });
       axios.get(`${apiURL}${x}${y}${z}`).then(res => {
         this.setState({ products: res.data });
@@ -180,7 +180,7 @@ export class Provider extends Component {
         name: "No name",
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
-      const apiURL = "https://elroblemarket.com/laravelApp/eShopBackend/public/api"
+      const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
 
       this.setState({ sendingOrder: true });
 
