@@ -156,7 +156,7 @@ class Navbar extends Component {
                         itemClass="cNavBarCigarros"
                         onClick={value.apiQuery.bind(
                           this,
-                          "products",
+                          "/products",
                           "/cigarros",
                           ""
                         )}
