@@ -87,7 +87,7 @@ class Navbar extends Component {
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
-                          <span className="cFontColorWhite">Licores</span>
+                          <span className="cNavbarItem">Licores</span>
                         </div>
                         <div
                           className="dropdown-menu cBlackTransparent text-center"
@@ -121,12 +121,21 @@ class Navbar extends Component {
                             )}
                           />
                           <NavbarSubItem
-                            itemName="Vinos"
+                            itemName="Vinos tintos"
                             onClick={value.apiQuery.bind(
                               this,
                               "/products",
                               "/tragos",
-                              "/vinos"
+                              "/vinostintos"
+                            )}
+                          />
+                          <NavbarSubItem
+                            itemName="Vinos blancos"
+                            onClick={value.apiQuery.bind(
+                              this,
+                              "/products",
+                              "/tragos",
+                              "/vinosblancos"
                             )}
                           />
                           <NavbarSubItem

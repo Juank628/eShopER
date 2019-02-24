@@ -101,6 +101,20 @@ li{
   animation-duration: 0.8s;
 }
 
+.cNavbarItem{
+  cursor: pointer;
+  color: white
+}
+
+.cNavbarSubItem{
+  cursor: pointer;
+  color: white !important
+}
+
+.cNavbarSubItem:hover{
+  color: black !important
+}
+
 .cNavBarLicores {
   background-image: url("https://elroblemarket.com/test6/build/img/products/tragos/licores.jpg");
   font-size: 50px;

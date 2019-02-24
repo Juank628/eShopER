@@ -6,7 +6,7 @@ class NavbarSubItem extends Component {
 
     return (
       <span
-        className="dropdown-item cFontColorWhite"
+        className="dropdown-item cNavbarSubItem"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
         onClick={this.props.onClick}
