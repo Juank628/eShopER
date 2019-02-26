@@ -6,7 +6,7 @@ class NavbarItem extends Component {
 
     return (
       <li
-        className={"nav-item " + "cNavbarItem " + itemClass}
+        className={"nav-item cNavbarItem " + itemClass}
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
         onClick={this.props.onClick}
