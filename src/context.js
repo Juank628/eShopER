@@ -72,6 +72,7 @@ export class Provider extends Component {
     loadingCards: false,
     sendingOrder: false,
     orderSent: false,
+    orderNumber: 0,
 
     apiQuery: (x, y, z) => {
       const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
@@ -186,9 +187,10 @@ export class Provider extends Component {
 
       axios.post(`${apiURL}/order`, { data }).then(res => {
         if (res.status > 199 && res.status < 300) {
-          console.log("sent ok");
+          console.log(res.data);
           this.setState({ orderSent: true });
           this.state.resetPurchaseList();
+          this.setState({orderNumber: res.data})
         }
         this.setState({ sendingOrder: false });
       });

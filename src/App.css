@@ -21,7 +21,7 @@
 
 .cVerticalCenter {
   height: 50%;
-  margin-top: 200px
+  margin-top: 200px;
 }
 
 .cChatTextLink {
@@ -30,12 +30,26 @@
   cursor: pointer;
 }
 
-.cChatSpace{
+.cChatSpace {
   margin-bottom: 100px;
 }
 
-li{
-  list-style: none
+.cUnselText {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.cSelText {
+  -webkit-user-select: text; /* Safari */
+  -moz-user-select: text; /* Firefox */
+  -ms-user-select: text; /* IE10+/Edge */
+  user-select: text; /* Standard */
+}
+
+li {
+  list-style: none;
 }
 
 /********************************Components styles**********************************/
@@ -45,10 +59,10 @@ li{
 
 .cCardPrice {
   position: absolute;
-  top:30px;
+  top: 30px;
   margin-left: -15px;
   padding: 3px;
-  background-color: rgba(53,168,63,1);
+  background-color: rgba(53, 168, 63, 1);
   color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -88,6 +102,10 @@ li{
   font-weight: 700;
 }
 
+.cTotalAndPayOrdNo {
+  font-weight: 900;
+}
+
 .cNavBarSpace {
   margin-top: 70px;
 }
@@ -101,18 +119,18 @@ li{
   animation-duration: 0.8s;
 }
 
-.cNavbarItem{
+.cNavbarItem {
   cursor: pointer;
-  color: white
+  color: white;
 }
 
-.cNavbarSubItem{
+.cNavbarSubItem {
   cursor: pointer;
-  color: white !important
+  color: white !important;
 }
 
-.cNavbarSubItem:hover{
-  color: black !important
+.cNavbarSubItem:hover {
+  color: black !important;
 }
 
 .cNavBarLicores {
@@ -153,7 +171,7 @@ li{
   }
 
   .cTotalAndPayBtn {
-    width: 50%
+    width: 50%;
   }
 }
 
@@ -171,7 +189,7 @@ li{
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -189,7 +207,7 @@ li{
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -207,7 +225,7 @@ li{
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -225,7 +243,7 @@ li{
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -243,7 +261,7 @@ li{
   }
 }
 
-@keyframes sentMessageImg{
+@keyframes sentMessageImg {
   0% {
     transform: scale(0.1);
   }
