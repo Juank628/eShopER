@@ -114,7 +114,13 @@ li {
   height: 56px;
 }
 
-.cNavBarBadge {
+.cNavbarBadge {
+  position: absolute;
+  left: 32px;
+  top: 28px
+}
+
+.cNavbarBadgeMove {
   animation-name: badgeChange;
   animation-duration: 0.8s;
 }
@@ -131,6 +137,24 @@ li {
 
 .cNavbarSubItem:hover {
   color: black !important;
+}
+
+.cNavbarLink_1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 56px;
+  background-color: #5cb85c;
+}
+
+.cNavbarLink_2 {
+  position: absolute;
+  top: 0;
+  left: 56px;
+  height: 56px;
+  width: 56px;
+  background-color: white;
 }
 
 .cNavBarLicores {

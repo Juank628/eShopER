@@ -2,64 +2,48 @@ import React, { Component } from "react";
 import { Consumer } from "../context";
 import NavbarItem from "./NavbarItem";
 import NavbarSubItem from "./NavbarSubItem";
+import ProductsList from "./Views/ProductsList";
+import { Route, NavLink, HashRouter } from "react-router-dom";
 
 class Navbar extends Component {
-  state = {
-    showMenu: true
-  };
-
-  cartPressed = () => {
-    this.props.cartPressedHandler();
-    this.setState({
-      showMenu: !this.state.showMenu
-    });
-  };
 
   render() {
-    let { showMenu } = this.state;
-
+   
     return (
       <Consumer>
         {value => {
           let totalQuantity = 0;
-          let badgeAnimation = value.badgeAnimation ? "cNavBarBadge" : null;
+          let badgeAnimation = value.badgeAnimation ? "cNavbarBadgeMove" : null;
 
           for (let i = 0; i < value.quantityArray.length; i++) {
-            totalQuantity = totalQuantity + parseInt(value.quantityArray[i]);
+            totalQuantity += parseInt(value.quantityArray[i]);
           }
 
           return (
-            <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
-              {!value.orderSent ? (
-                <div>
-                  <img
-                    onClick={this.cartPressed}
-                    className="mr-auto"
-                    src={
-                      showMenu
-                        ? 
-                          "img/icons/shopping-cart-white.png"
-                        :
-                          "img/icons/left-arrow-key-white.png"
-                    }
-                    alt="not found"
-                  />
-                </div>
-              ) : null}
+            <HashRouter>
+              <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
+                <NavLink to="/products">
+                  <div className="cNavbarLink_1 text-center py-2">
+                    <img src="img/icons/grocery.png" />
+                  </div>
+                </NavLink>
 
-              {showMenu && totalQuantity > 0 && !value.orderSent ? (
-                <span
-                  className={
-                    "badge mr-auto badge-pill badge-danger mt-n3 ml-n1 " +
-                    badgeAnimation
-                  }
-                  onClick={this.cartPressed}
-                >
-                  {totalQuantity}
-                </span>
-              ) : null}
+                <NavLink to="/purchase">
+                  <div className="cNavbarLink_2 text-center py-2">
+                    <img src="img/icons/cart.png" />
+                    {totalQuantity > 0 ? (
+                      <span
+                        className={
+                          "badge badge-pill badge-danger cNavbarBadge " +
+                          badgeAnimation
+                        }
+                      >
+                        {totalQuantity}
+                      </span>
+                    ) : null}
+                  </div>
+                </NavLink>
 
-              {showMenu && !value.orderSent ? (
                 <React.Fragment>
                   <button
                     className="navbar-toggler"
@@ -183,8 +167,8 @@ class Navbar extends Component {
                     </ul>
                   </div>
                 </React.Fragment>
-              ) : null}
-            </nav>
+              </nav>
+            </HashRouter>
           );
         }}
       </Consumer>
