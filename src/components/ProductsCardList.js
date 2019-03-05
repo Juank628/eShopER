@@ -1,36 +1,41 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import ProductCard from "./ProductCard.js";
+import axios from "axios";
+import Loading from "./Loading";
+import ProductCard from "./ProductCard";
 
 class ProductsCardList extends Component {
+  state = {
+    products: [],
+    loadingCards: false,
+
+    apiQuery: (x, y, z) => {
+      const apiURL =
+        "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
+      this.setState({ loadingCards: true });
+      axios.get(`${apiURL}${x}${y}${z}`).then(res => {
+        this.setState({ products: res.data });
+        this.setState({ loadingCards: false });
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.state.apiQuery("/products", "/tragos", "/vinostintos");
+  }
+
   render() {
+    const { products, loadingCards } = this.state;
+    const { family, subfamily } = this.props;
     return (
       <Consumer>
         {value => {
-          return value.loadingCards ? (
-            <div className="cVerticalCenter text-center">
-              <div className="spinner-grow text-primary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div className="spinner-grow text-secondary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div className="spinner-grow text-success" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div className="spinner-grow text-danger" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div className="spinner-grow text-warning" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div className="spinner-grow text-info" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
+          return loadingCards ? (
+            <Loading />
           ) : (
             <div className="row justify-content-center cChatSpace">
-              {value.products.map((product, i) => (
+              {family}
+              {products.map((product, i) => (
                 <ProductCard key={i} product={product} />
               ))}
             </div>

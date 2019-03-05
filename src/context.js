@@ -84,7 +84,7 @@ export class Provider extends Component {
     },
 
     getData: () => {
-      this.state.apiQuery("/products", "/tragos", "/vinostintos");
+      //this.state.apiQuery("/products", "/tragos", "/vinostintos");
       if (sessionStorage.length > 4) {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),

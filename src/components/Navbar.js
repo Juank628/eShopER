@@ -3,12 +3,11 @@ import { Consumer } from "../context";
 import NavbarItem from "./NavbarItem";
 import NavbarSubItem from "./NavbarSubItem";
 import ProductsList from "./Views/ProductsList";
+import PurchaseList from "./Views/PurchaseList";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 
 class Navbar extends Component {
-
   render() {
-   
     return (
       <Consumer>
         {value => {
@@ -21,30 +20,30 @@ class Navbar extends Component {
 
           return (
             <HashRouter>
-              <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
-                <NavLink to="/products">
-                  <div className="cNavbarLink_1 text-center py-2">
-                    <img src="img/icons/grocery.png" />
-                  </div>
-                </NavLink>
+              <div>
+                <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
+                  <NavLink to="/products">
+                    <div className="cNavbarLink_1 text-center py-2">
+                      <img src="img/icons/grocery.png" />
+                    </div>
+                  </NavLink>
 
-                <NavLink to="/purchase">
-                  <div className="cNavbarLink_2 text-center py-2">
-                    <img src="img/icons/cart.png" />
-                    {totalQuantity > 0 ? (
-                      <span
-                        className={
-                          "badge badge-pill badge-danger cNavbarBadge " +
-                          badgeAnimation
-                        }
-                      >
-                        {totalQuantity}
-                      </span>
-                    ) : null}
-                  </div>
-                </NavLink>
+                  <NavLink to="/purchase">
+                    <div className="cNavbarLink_2 text-center py-2">
+                      <img src="img/icons/cart.png" />
+                      {totalQuantity > 0 ? (
+                        <span
+                          className={
+                            "badge badge-pill badge-danger cNavbarBadge " +
+                            badgeAnimation
+                          }
+                        >
+                          {totalQuantity}
+                        </span>
+                      ) : null}
+                    </div>
+                  </NavLink>
 
-                <React.Fragment>
                   <button
                     className="navbar-toggler"
                     type="button"
@@ -144,16 +143,13 @@ class Navbar extends Component {
                         </div>
                       </li>
 
-                      <NavbarItem
-                        itemName="Cigarros"
-                        itemClass="cNavBarCigarros"
-                        onClick={value.apiQuery.bind(
-                          this,
-                          "/products",
-                          "/cigarros",
-                          ""
-                        )}
-                      />
+                      <NavLink to="/products/cigarros/todos">
+                        <NavbarItem
+                          itemName="Cigarros"
+                          itemClass="cNavBarCigarros"
+                        />
+                      </NavLink>
+
                       <NavbarItem
                         itemName="Tapas"
                         itemClass="cNavBarTapas"
@@ -166,8 +162,12 @@ class Navbar extends Component {
                       />
                     </ul>
                   </div>
-                </React.Fragment>
-              </nav>
+                </nav>
+                <div>
+                  <Route exact path="/purchase" component={PurchaseList} />
+                  <Route exact path="/products/:family/:subfamily" component={ProductsList} />
+                </div>
+              </div>
             </HashRouter>
           );
         }}
