@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom"
 
 const Context = React.createContext();
 
@@ -59,7 +60,7 @@ const reducer = (state, action) => {
   }
 };
 
-export class Provider extends Component {
+class Provider extends Component {
   state = {
     products: [],
     productArray: [],
@@ -181,6 +182,7 @@ export class Provider extends Component {
         name: "No name",
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
+
       const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
 
       this.setState({ sendingOrder: true });
@@ -213,4 +215,5 @@ export class Provider extends Component {
   }
 }
 
+export default withRouter(Provider)
 export const Consumer = Context.Consumer;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { Provider } from "./context";
+import Provider from "./context";
 import Navbar from "./components/Navbar.js";
 import LiveChat from "./components/LiveChat";
 import ProductsList from "./components/Views/ProductsList";
@@ -14,30 +14,30 @@ import NotFound from "./components/NotFound";
 class App extends Component {
   render() {
     return (
-      <Provider>
-        <HashRouter>
+      <HashRouter>
+        <Provider>
           <div className="App">
             <Navbar />
             <div className="container h-100">
               <div className="row h-100">
                 <Switch>
-                  <Route  path="/ordersent" component={OrderConfirmation} />
-                  <Route  path="/purchase" component={PurchaseList} />
-                  <Route        
+                  <Redirect exact from="/" to="/products/tragos/vinostintos" />
+                </Switch>
+                <Switch>
+                  <Route path="/ordersent" component={OrderConfirmation} />
+                  <Route path="/purchase" component={PurchaseList} />
+                  <Route
                     path="/products/:family/:subfamily"
                     component={ProductsList}
                   />
                   <Route component={NotFound} />
                 </Switch>
-                <Switch>
-                  <Redirect exact from="/" to="/products/tragos/vinostintos" />
-                </Switch>
               </div>
             </div>
             <LiveChat />
           </div>
-        </HashRouter>
-      </Provider>
+        </Provider>
+      </HashRouter>
     );
   }
 }

@@ -13,7 +13,8 @@ class Navbar extends Component {
     if (
       prevProps.location.pathname !== this.props.location.pathname &&
       this.props.location.pathname !== "/purchase" &&
-      this.props.location.pathname !== "/products"
+      this.props.location.pathname !== "/products" &&
+      this.props.location.pathname !== "/ordersent"
     ) {
       this.setState({
         path: this.props.location.pathname
