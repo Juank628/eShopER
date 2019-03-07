@@ -5,16 +5,38 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { Provider } from "./context";
 import Navbar from "./components/Navbar.js";
 import LiveChat from "./components/LiveChat";
+import ProductsList from "./components/Views/ProductsList";
+import PurchaseList from "./components/Views/PurchaseList";
+import OrderConfirmation from "./components/Views/OrderConfirmation";
+import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 class App extends Component {
-
   render() {
     return (
       <Provider>
-        <div className="App">
-          <Navbar />
-          <LiveChat />
-        </div>
+        <HashRouter>
+          <div className="App">
+            <Navbar />
+            <div className="container h-100">
+              <div className="row h-100">
+                <Switch>
+                  <Route  path="/ordersent" component={OrderConfirmation} />
+                  <Route  path="/purchase" component={PurchaseList} />
+                  <Route        
+                    path="/products/:family/:subfamily"
+                    component={ProductsList}
+                  />
+                  <Route component={NotFound} />
+                </Switch>
+                <Switch>
+                  <Redirect exact from="/" to="/products/tragos/vinostintos" />
+                </Switch>
+              </div>
+            </div>
+            <LiveChat />
+          </div>
+        </HashRouter>
       </Provider>
     );
   }

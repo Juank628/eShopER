@@ -191,6 +191,7 @@ export class Provider extends Component {
           this.setState({ orderSent: true });
           this.state.resetPurchaseList();
           this.setState({orderNumber: res.data})
+          this.props.history.push("/ordersent");
         }
         this.setState({ sendingOrder: false });
       });

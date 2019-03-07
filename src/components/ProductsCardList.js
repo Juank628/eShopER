@@ -7,6 +7,8 @@ import ProductCard from "./ProductCard";
 class ProductsCardList extends Component {
   state = {
     products: [],
+    lastFamily: "",
+    lastSubfamily: "",
     loadingCards: false,
 
     apiQuery: (x, y, z) => {
@@ -20,13 +22,49 @@ class ProductsCardList extends Component {
     }
   };
 
+  getData = () => {
+    if (this.routeChange()) {
+      let family = this.checkFamily();
+      let subfamily = this.checkSubfamily();
+
+      this.state.apiQuery("/products", family, subfamily);
+
+      this.setState({
+        lastFamily: this.props.family,
+        lastSubfamily: this.props.subfamily
+      });
+    }
+  };
+
+  routeChange = () => {
+    return (
+      this.state.lastFamily !== this.props.family ||
+      this.state.lastSubfamily !== this.props.subfamily
+    );
+  };
+
+  checkFamily = () => {
+    return '/' + this.props.family;
+  };
+
+  checkSubfamily = () => {
+    if (this.props.subfamily !== "todos") {
+      return "/" + this.props.subfamily;
+    } else {
+      return "";
+    }
+  };
+
+  componentDidUpdate() {
+    this.getData();
+  }
+
   componentDidMount() {
-    this.state.apiQuery("/products", "/tragos", "/vinostintos");
+    this.getData();
   }
 
   render() {
     const { products, loadingCards } = this.state;
-    const { family, subfamily } = this.props;
     return (
       <Consumer>
         {value => {
@@ -34,7 +72,6 @@ class ProductsCardList extends Component {
             <Loading />
           ) : (
             <div className="row justify-content-center cChatSpace">
-              {family}
               {products.map((product, i) => (
                 <ProductCard key={i} product={product} />
               ))}

@@ -21,7 +21,10 @@ export default class PurchaseItemList extends Component {
           </div>
           ):
           (
-            <p>Tu lista está vacía</p>
+            <div className="cVerticalCenter">
+              <p className="font-weight-bold">Tu lista está vacía</p>
+              <img src="img/icons/empty-cart.png" alt="not found" />
+            </div>
           )
           );
         }}
