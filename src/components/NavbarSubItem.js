@@ -9,7 +9,6 @@ class NavbarSubItem extends Component {
         className="dropdown-item cNavbarSubItem"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
-        onClick={this.props.onClick}
       >
         {itemName}
       </span>

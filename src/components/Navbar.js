@@ -72,63 +72,84 @@ class Navbar extends Component {
                 </button>
 
                 <div
-                  className="collapse navbar-collapse"
+                  className="collapse navbar-collapse mt-2"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav">
-                    <li className="nav-item dropdown cNavBarLicores">
+                  <ul className="navbar-nav mr-auto">
+                    <li className="nav-item dropdown">
                       <div
-                        className="nav-link dropdown-toggle text-center"
+                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
+                        href="#"
                         id="navbarDropdown"
                         role="button"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        <span className="cNavbarItem">Licores</span>
+                        Licores
                       </div>
                       <div
-                        className="dropdown-menu cBlackTransparent text-center"
+                        class="dropdown-menu py-0 my-0 border-0"
                         aria-labelledby="navbarDropdown"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
                       >
-                        <NavLink to="/products/tragos/cervezas">
-                          <NavbarSubItem itemName="Cervezas" />
+                        <NavLink
+                          to="/products/tragos/cervezas"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Cervezas
                         </NavLink>
 
-                        <NavLink to="/products/tragos/rones">
-                          <NavbarSubItem itemName="Rones" />
+                        <NavLink
+                          to="/products/tragos/rones"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Rones
                         </NavLink>
 
-                        <NavLink to="/products/tragos/piscos">
-                          <NavbarSubItem itemName="Piscos" />
+                        <NavLink
+                          to="/products/tragos/piscos"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Piscos
                         </NavLink>
 
-                        <NavLink to="/products/tragos/vinostintos">
-                          <NavbarSubItem itemName="Vinos tintos" />
+                        <NavLink
+                          to="/products/tragos/vinostintos"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Vinos tintos
                         </NavLink>
 
-                        <NavLink to="/products/tragos/vinosblancos">
-                          <NavbarSubItem itemName="Vinos blancos" />
+                        <NavLink
+                          to="/products/tragos/vinosblancos"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Vinos blancos
                         </NavLink>
 
-                        <NavLink to="/products/tragos/otros">
-                          <NavbarSubItem itemName="Otros" />
-                        </NavLink>
-
-                        <NavLink to="/products/tragos/todos">
-                          <NavbarSubItem itemName="Todos" />
+                        <NavLink
+                          to="/products/tragos/otros"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Otros
                         </NavLink>
                       </div>
                     </li>
 
-                    <NavLink to="/products/cigarros/todos">
-                      <NavbarItem
-                        itemName="Cigarros"
-                        itemClass="cNavBarCigarros"
-                      />
-                    </NavLink>
-
-                    <NavbarItem itemName="Tapas" itemClass="cNavBarTapas" />
+                    <li
+                      className="nav-item"
+                      data-toggle="collapse"
+                      data-target="#navbarSupportedContent"
+                    >
+                      <NavLink
+                        to="/products/cigarros/todos"
+                        className="nav-link cNavbarItem cNavbarItem_2 cUnselText"
+                      >
+                        Cigarros
+                      </NavLink>
+                    </li>
                   </ul>
                 </div>
               </nav>

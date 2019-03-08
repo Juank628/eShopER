@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 /*********************************General styles***********************************/
 .App {
   height: 100vh;
@@ -135,16 +137,33 @@ li {
 
 .cNavbarItem {
   cursor: pointer;
-  color: white;
+  color: black !important;
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif; 
+}
+
+.cNavbarItem_1 {
+  background-color: #b9f6ca !important;
+}
+
+.cNavbarItem_2 {
+  background-color: #00c853 !important;
 }
 
 .cNavbarSubItem {
   cursor: pointer;
-  color: white !important;
+  color: black !important;
+  padding: 2px !important;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif; 
+  background-color: #69f0ae !important;
 }
 
 .cNavbarSubItem:hover {
-  color: black !important;
+  color: white !important;
+  background-color: black !important
 }
 
 .cNavbarLink_1 {
@@ -165,19 +184,12 @@ li {
   background-color: inherit;
 }
 
-.cNavBarLicores {
-  background-image: url("https://elroblemarket.com/test6/build/img/products/tragos/licores.jpg");
-  font-size: 50px;
-}
-
 .cNavBarCigarros {
   background-image: url("https://elroblemarket.com/test6/build/img/products/cigarros/cigarros.jpg");
-  font-size: 50px;
 }
 
 .cNavBarTapas {
   background-image: url("https://elroblemarket.com/test6/build/img/products/tapas/tapas.jpg");
-  font-size: 50px;
 }
 
 .cSentMessageImg {
