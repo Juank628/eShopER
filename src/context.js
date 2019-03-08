@@ -75,17 +75,7 @@ class Provider extends Component {
     orderSent: false,
     orderNumber: 0,
 
-    apiQuery: (x, y, z) => {
-      const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
-      this.setState({ loadingCards: true });
-      axios.get(`${apiURL}${x}${y}${z}`).then(res => {
-        this.setState({ products: res.data });
-        this.setState({ loadingCards: false });
-      });
-    },
-
     getData: () => {
-      //this.state.apiQuery("/products", "/tragos", "/vinostintos");
       if (sessionStorage.length > 4) {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),

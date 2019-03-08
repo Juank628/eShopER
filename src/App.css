@@ -5,24 +5,12 @@
   height: 100vh;
 }
 
-.cBgBlack {
-  background-color: black;
-}
-
 .cBgWhite {
   background-color: white;
 }
 
-.cBlackTransparent {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
 .cFontMono {
   font-family: monospace;
-}
-
-.cFontColorWhite {
-  color: white !important;
 }
 
 .cVerticalCenter {
@@ -137,7 +125,7 @@ li {
 
 .cNavbarItem {
   cursor: pointer;
-  color: black !important;
+  color: rgba(0,0,0,0.7) !important;
   font-size: 30px;
   text-align: center;
   font-family: 'Roboto', sans-serif; 
@@ -153,7 +141,7 @@ li {
 
 .cNavbarSubItem {
   cursor: pointer;
-  color: black !important;
+  color:  rgba(0,0,0,0.7) !important;
   padding: 2px !important;
   font-size: 20px;
   text-align: center;
@@ -182,14 +170,6 @@ li {
   height: 56px;
   width: 56px;
   background-color: inherit;
-}
-
-.cNavBarCigarros {
-  background-image: url("https://elroblemarket.com/test6/build/img/products/cigarros/cigarros.jpg");
-}
-
-.cNavBarTapas {
-  background-image: url("https://elroblemarket.com/test6/build/img/products/tapas/tapas.jpg");
 }
 
 .cSentMessageImg {

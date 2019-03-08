@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import NavbarItem from "./NavbarItem";
-import NavbarSubItem from "./NavbarSubItem";
 import { NavLink, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
@@ -75,7 +73,7 @@ class Navbar extends Component {
                   className="collapse navbar-collapse mt-2"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav mr-auto">
+                  <ul className="navbar-nav">
                     <li className="nav-item dropdown">
                       <div
                         className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
