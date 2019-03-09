@@ -66,6 +66,17 @@ li {
   border-bottom-right-radius: 10px;
 }
 
+.cCardSale {
+  position: absolute;
+  top: 60px;
+  margin-left: -15px;
+  padding: 3px;
+  background-color: #f44336;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .cCardNameHeight {
   height: 95px;
 }
@@ -187,7 +198,7 @@ li {
     width: 95%;
     position: fixed;
     bottom: 0;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -205,7 +216,7 @@ li {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -223,7 +234,7 @@ li {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -241,7 +252,7 @@ li {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -259,7 +270,7 @@ li {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {

@@ -87,7 +87,7 @@ class Navbar extends Component {
                         Licores
                       </div>
                       <div
-                        class="dropdown-menu py-0 my-0 border-0"
+                        className="dropdown-menu py-0 my-0 border-0"
                         aria-labelledby="navbarDropdown"
                         data-toggle="collapse"
                         data-target="#navbarSupportedContent"

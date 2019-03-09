@@ -22,7 +22,7 @@ class ProductCard extends Component {
   };
 
   render() {
-    const { name, price, family, subfamily } = this.props.product;
+    const { name, price, sale, family, subfamily } = this.props.product;
 
     return (
       <Consumer>
@@ -53,6 +53,12 @@ class ProductCard extends Component {
                   <span>S/</span>
                   <span>{price}</span>
                 </div>
+
+                {sale == 1 ? (
+                  <div className="cCardSale">
+                    <span>Oferta!</span>
+                  </div>
+                ) : null}
 
                 {value.quantityArray[value.productArray.indexOf(name)] ===
                 undefined ? (
