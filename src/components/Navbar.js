@@ -148,6 +148,69 @@ class Navbar extends Component {
                         Cigarros
                       </NavLink>
                     </li>
+
+                    <li className="nav-item dropdown">
+                      <div
+                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Bebidas
+                      </div>
+                      <div
+                        className="dropdown-menu py-0 my-0 border-0"
+                        aria-labelledby="navbarDropdown"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                      >
+                        <NavLink
+                          to="/products/bebidas/gaseosas"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Gaseosas
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/bebidas/jugos"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Jugos
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/bebidas/aguas"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Aguas
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/bebidas/energizantes"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Energizantes
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/bebidas/rehidratantes"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Rehidratantes
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/bebidas/otros"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Otros
+                        </NavLink>
+                      </div>
+                    </li>
+
                   </ul>
                 </div>
               </nav>
