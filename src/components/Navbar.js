@@ -211,6 +211,51 @@ class Navbar extends Component {
                       </div>
                     </li>
 
+                    <li className="nav-item dropdown">
+                      <div
+                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_2 cUnselText"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Golosinas
+                      </div>
+                      <div
+                        className="dropdown-menu py-0 my-0 border-0"
+                        aria-labelledby="navbarDropdown"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                      >
+                        <NavLink
+                          to="/products/golosinas/chocolates"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Chocolates
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/golosinas/gomitas"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Gomitas
+                        </NavLink>
+                      </div>
+                    </li>
+                    <li
+                      className="nav-item"
+                      data-toggle="collapse"
+                      data-target="#navbarSupportedContent"
+                    >
+                      <NavLink
+                        to="/products/panetones/NA"
+                        className="nav-link cNavbarItem cNavbarItem_1 cUnselText"
+                      >
+                        Panetones
+                      </NavLink>
+                    </li>
                   </ul>
                 </div>
               </nav>

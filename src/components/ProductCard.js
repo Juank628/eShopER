@@ -39,7 +39,7 @@ class ProductCard extends Component {
                   "/" +
                   subfamily +
                   "/" +
-                  name.replace(/ /g, "") +
+                  name.replace(/ /g, "").replace(/%/g,"(p)")+
                   ".jpg"
                 }
                 alt="not found"
