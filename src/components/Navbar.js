@@ -73,7 +73,7 @@ class Navbar extends Component {
                   className="collapse navbar-collapse mt-2"
                   id="navbarSupportedContent"
                 >
-                  <ul className="navbar-nav">
+                  <ul className="navbar-nav cScrollableMenu">
                     <li className="nav-item dropdown">
                       <div
                         className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
@@ -255,6 +255,54 @@ class Navbar extends Component {
                       >
                         Panetones
                       </NavLink>
+                    </li>
+
+                    <li className="nav-item dropdown">
+                      <div
+                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_2 cUnselText"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Abarrotes
+                      </div>
+                      <div
+                        className="dropdown-menu py-0 my-0 border-0"
+                        aria-labelledby="navbarDropdown"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                      >
+                        <NavLink
+                          to="/products/abarrotes/pescadoslata"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Pescado en lata
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/abarrotes/frutaslata"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Fruta en lata
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/abarrotes/fideospasta"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Fideos y pastas
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/abarrotes/aceitevegetal"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Aceite vegetal
+                        </NavLink>
+                      </div>
                     </li>
                   </ul>
                 </div>

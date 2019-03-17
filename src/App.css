@@ -42,6 +42,12 @@
   user-select: text; /* Standard */
 }
 
+.cScrollableMenu {
+  height: auto;
+  max-height: 70vh;
+  overflow-x: hidden;
+}
+
 .active {
   background-color: white;
 }
