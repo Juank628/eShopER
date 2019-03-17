@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Consumer } from "../context";
 
 export default class TotalAndPay extends Component {
+  state={
+    deliveryPrice: 3.5
+  }
   
   render() {
     return (
@@ -13,11 +16,18 @@ export default class TotalAndPay extends Component {
               totalPrice + value.quantityArray[i] * value.priceArray[i];
           }
           return (
-            <div className="cFixed cBgWhite">
-              <span className="cTotalAndPayTitle">Total:</span>
+            <div className="cFixed cBgWhite border-sm-top">
+            <div className="border-top d-sm-none"></div>
+            <div className="px-2 mt-2">
+              <span className="">Subtotal:</span>
+              <span className="float-right">S/{totalPrice}</span>
               <br />
-              <span className="cTotalAndPayPrice">S/{totalPrice}</span>
+              <span className="">Delivery:</span>
+              <span className="float-right">S/{this.state.deliveryPrice}</span>
               <br />
+              <span className="font-weight-bold">Total a pagar:</span>
+              <span className="font-weight-bold float-right">S/{totalPrice + this.state.deliveryPrice}</span>
+            </div>
 
               {value.sendingOrder ? (
                 <button

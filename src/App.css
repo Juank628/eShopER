@@ -104,15 +104,6 @@ li {
   max-width: 100px;
 }
 
-.cTotalAndPayTitle {
-  color: gray;
-}
-
-.cTotalAndPayPrice {
-  font-size: 40px;
-  font-weight: 700;
-}
-
 .cTotalAndPayBtnTxt {
   font-weight: 700;
 }
