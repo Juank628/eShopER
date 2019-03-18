@@ -304,6 +304,54 @@ class Navbar extends Component {
                         </NavLink>
                       </div>
                     </li>
+
+                    <li className="nav-item dropdown">
+                      <div
+                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Limpieza
+                      </div>
+                      <div
+                        className="dropdown-menu py-0 my-0 border-0"
+                        aria-labelledby="navbarDropdown"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                      >
+                        <NavLink
+                          to="/products/limpieza/detergentes"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Detergentes
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/limpieza/desinfectantes"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Desinfectantes
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/limpieza/lavavajillas"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Lavavajillas
+                        </NavLink>
+
+                        <NavLink
+                          to="/products/limpieza/lejia"
+                          className="nav-link cNavbarSubItem cUnselText"
+                        >
+                          Lejia
+                        </NavLink>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </nav>

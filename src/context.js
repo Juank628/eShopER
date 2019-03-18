@@ -170,6 +170,7 @@ class Provider extends Component {
       const data = {
         phone: "No phone",
         name: "No name",
+        location: 0,
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
 
