@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
 import Provider from "./context";
 import Navbar from "./components/Navbar.js";
 import LiveChat from "./components/LiveChat";
 import ProductsList from "./components/Views/ProductsList";
 import PurchaseList from "./components/Views/PurchaseList";
 import OrderConfirmation from "./components/Views/OrderConfirmation";
-import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
 import NotFound from "./components/NotFound";
 
 class App extends Component {
@@ -21,13 +21,13 @@ class App extends Component {
               <div className="container">
               <div className="row h-100">
                 <Switch>
-                  <Redirect exact from="/" to="/products/tragos/vinostintos" />
+                  <Redirect exact from="/" to="/products/tragos" />
                 </Switch>
                 <Switch>
                   <Route path="/ordersent" component={OrderConfirmation} />
                   <Route path="/purchase" component={PurchaseList} />
                   <Route
-                    path="/products/:family/:subfamily"
+                    path="/products/:family"
                     component={ProductsList}
                   />
                   <Route component={NotFound} />

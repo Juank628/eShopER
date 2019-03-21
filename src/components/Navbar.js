@@ -76,37 +76,37 @@ class Navbar extends Component {
                 >
                   <ul className="navbar-nav cScrollableMenu">
                     <NavItem
-                      route="/products/tragos/todos"
+                      route="/products/tragos"
                       name="Licores"
                       color="cNavbarItem_1"
                     />
                     <NavItem
-                      route="/products/cigarros/todos"
+                      route="/products/cigarros"
                       name="Cigarros"
                       color="cNavbarItem_2"
                     />
                     <NavItem
-                      route="/products/bebidas/todos"
+                      route="/products/bebidas"
                       name="Bebidas"
                       color="cNavbarItem_1"
                     />
                     <NavItem
-                      route="/products/golosinas/todos"
+                      route="/products/golosinas"
                       name="Golosinas"
                       color="cNavbarItem_2"
                     />
                     <NavItem
-                      route="/products/panetones/todos"
+                      route="/products/panetones"
                       name="Panetones"
                       color="cNavbarItem_1"
                     />
                     <NavItem
-                      route="/products/abarrotes/todos"
+                      route="/products/abarrotes"
                       name="Abarrotes"
                       color="cNavbarItem_2"
                     />
                     <NavItem
-                      route="/products/limpieza/todos"
+                      route="/products/limpieza"
                       name="Limpieza"
                       color="cNavbarItem_1"
                     />

@@ -6,7 +6,7 @@ export default class Icon extends Component {
     return (
       <svg className={iconStyle}>
         <use
-          xlinkHref={group ? `/img/icons/${group}.svg#${symbol}` : `#${symbol}`}
+          href={group ? `img/icons/${group}.svg#${symbol}` : `#${symbol}`}
         />
       </svg>
     );

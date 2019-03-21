@@ -35,6 +35,10 @@ body {
   fill: rgba(0,0,0,0.6);
 }
 
+.cNotFoundIcon{
+  fill: rgba(0,0,0,0.6);
+}
+
 .cFilterIcon{
   fill: red;
   width: 24px;
@@ -152,7 +156,7 @@ li {
 }
 
 .cTotalAndPayBtnTxt {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .cTotalAndPayOrdNo {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import Icon from "./Icon";
 
 export default class NotFound extends Component {
   state = {
@@ -16,25 +17,21 @@ export default class NotFound extends Component {
 
   timer = () =>
     setTimeout(() => {
-      console.log("init");
       this._isMounted = true;
       this.setState({ redirect: true });
     }, 5000);
 
   render() {
     if (this.state.redirect) {
-      console.log("redirect");
-      return <Redirect to="/products/tragos/cervezas" />;
+      return <Redirect to="/products/tragos" />;
     }
     return (
-      <div className="col-12">
+      <div className="col-12 cVerticalCenter">
         <div className="text-center cNavbarSpace">
           <div>
-            <img src="img/icons/warning.png" alt="Not found" />
+            <p className="text-center text-secondary">Página no encontrada</p>
           </div>
-          <div>
-            <h3 className="text-center mt-5">Página no encontrada</h3>
-          </div>
+          <Icon group="icons" symbol="errorNoFill" iconStyle="cNotFoundIcon" />
         </div>
       </div>
     );
