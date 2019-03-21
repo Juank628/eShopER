@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../context";
+import Icon from "./Icon";
 
 class ProductCard extends Component {
   state = {
@@ -30,22 +31,21 @@ class ProductCard extends Component {
           const { dispatch } = value;
 
           return (
-            <div className="card col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-1 mb-2">
-            
+            <div className="card cCard cBoxShadow col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-1 mb-2">
               <img
-                className="card-img-top"
+                className="card-img-top mt-3"
                 src={
                   "img/products/" +
                   family +
                   "/" +
                   subfamily +
                   "/" +
-                  name.replace(/ /g, "").replace(/%/g,"(p)")+
+                  name.replace(/ /g, "").replace(/%/g, "(p)") +
                   ".jpg"
                 }
                 alt="not found"
               />
-              <div className="card-body px-0">
+              <div className="cCardBody">
                 <div className="cCardNameHeight">
                   <h5 className="card-title cCardTitle">{name}</h5>
                 </div>
@@ -63,10 +63,8 @@ class ProductCard extends Component {
 
                 {value.quantityArray[value.productArray.indexOf(name)] ===
                 undefined ? (
-                  <img
-                    src="img/icons/add-cart.png"
-                    alt="not found"
-                    className="float-right cCardCart"
+                  <div
+                    className="float-right"
                     onClick={this.clickAdd.bind(
                       this,
                       dispatch,
@@ -75,11 +73,35 @@ class ProductCard extends Component {
                       family,
                       subfamily
                     )}
-                  />
+                  >
+                    <Icon
+                      group="icons"
+                      symbol="addNoFill"
+                      iconStyle="cAddCartIcon"
+                    />
+                  </div>
                 ) : (
                   <form className="form-inline justify-content-center">
+
                     <button
-                      className="btn btn-sm btn-success mr-1 cFontMono"
+                      className="btn btn-sm btn-danger mr-1 cFontMono"
+                      type="button"
+                      onClick={this.clickSub.bind(this, dispatch, name)}
+                    >
+                      -
+                    </button>
+
+                    <input
+                      type="text"
+                      className="text-center form-control form-control-sm col-4"
+                      placeholder={
+                        value.quantityArray[value.productArray.indexOf(name)]
+                      }
+                      disabled
+                    />
+
+                    <button
+                      className="btn btn-sm btn-success ml-1 cFontMono"
                       type="button"
                       onClick={this.clickAdd.bind(
                         this,
@@ -93,22 +115,7 @@ class ProductCard extends Component {
                       +
                     </button>
 
-                    <input
-                      type="text"
-                      className="text-center form-control form-control-sm col-4"
-                      placeholder={
-                        value.quantityArray[value.productArray.indexOf(name)]
-                      }
-                      disabled
-                    />
-
-                    <button
-                      className="btn btn-sm btn-danger ml-1 cFontMono"
-                      type="button"
-                      onClick={this.clickSub.bind(this, dispatch, name)}
-                    >
-                      -
-                    </button>
+                    
                   </form>
                 )}
               </div>

@@ -13,6 +13,10 @@ body {
   max-width: 100% !important;
 }
 
+.cBoxShadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 .cBgWhite {
   background-color: white;
 }
@@ -21,10 +25,25 @@ body {
   font-family: monospace;
 }
 
-.cFilterIcon{
-  fill: red;
+.cAddCartIcon{
+  fill: #33691E;
   width: 32px;
   height: 32px;
+}
+
+.cEmptyCartIcon{
+  fill: rgba(0,0,0,0.6);
+}
+
+.cFilterIcon{
+  fill: red;
+  width: 24px;
+  height: 24px;
+}
+
+.cFilterFont{
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .cVerticalCenter {
@@ -71,6 +90,16 @@ li {
 }
 
 /********************************Components styles**********************************/
+
+.cCard {
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.cCardBody {
+  padding: 8px 0 16px !important;
+}
+
 .cCardTitle {
   font-size: 15px;
 }
@@ -103,7 +132,7 @@ li {
 
 .cPurchaseListName {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .cPurchaseListPrice {
@@ -118,6 +147,10 @@ li {
   max-width: 100px;
 }
 
+.cTotalAndPayTotal {
+  font-weight: 550;
+}
+
 .cTotalAndPayBtnTxt {
   font-weight: 700;
 }
@@ -127,11 +160,12 @@ li {
 }
 
 .cNavbarSpace {
-  margin-top: 60px;
+  margin-top: 56px;
 }
 
-.cNavBarHeight {
+.cNavBar {
   height: 56px;
+  padding: 8px 0 !important;
 }
 
 .cNavbarBadge {
@@ -148,14 +182,14 @@ li {
 .cNavbarItem {
   cursor: pointer;
   color: rgba(0,0,0,0.7) !important;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   font-family: 'Roboto', sans-serif; 
 }
 
 .cNavbarItem:hover {
   color: white !important;
-  background-color: black !important
+  background-color: #1b5e20  !important
 }
 
 .cNavbarItem_1 {

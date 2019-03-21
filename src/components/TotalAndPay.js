@@ -16,7 +16,7 @@ export default class TotalAndPay extends Component {
               totalPrice + value.quantityArray[i] * value.priceArray[i];
           }
           return (
-            <div className="cFixed cBgWhite border-sm-top">
+            <div className="cFixed px-2 cBgWhite border-sm-top">
             <div className="border-top d-sm-none"></div>
             <div className="px-2 mt-2">
               <span className="">Subtotal:</span>
@@ -25,14 +25,14 @@ export default class TotalAndPay extends Component {
               <span className="">Delivery:</span>
               <span className="float-right">S/{this.state.deliveryPrice}</span>
               <br />
-              <span className="font-weight-bold">Total a pagar:</span>
-              <span className="font-weight-bold float-right">S/{totalPrice + this.state.deliveryPrice}</span>
+              <span className="cTotalAndPayTotal">Total a pagar:</span>
+              <span className="cTotalAndPayTotal float-right">S/{totalPrice + this.state.deliveryPrice}</span>
             </div>
 
               {value.sendingOrder ? (
                 <button
                   type="button"
-                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
+                  className="mt-2 mb-3 float-right btn btn-success btn-lg cTotalAndPayBtn"
                   disabled
                 >
                   <span
@@ -45,7 +45,7 @@ export default class TotalAndPay extends Component {
               ) : (
                 <button
                   type="button"
-                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
+                  className="mt-2 mb-3 float-right btn btn-success btn-lg cTotalAndPayBtn"
                   onClick={value.sendOrder}
                 >
                   <span className="cTotalAndPayBtnTxt">Pedir</span>

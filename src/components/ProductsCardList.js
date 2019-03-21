@@ -11,29 +11,29 @@ class ProductsCardList extends Component {
     lastSubfamily: "",
     loadingCards: false,
     filterType: "todos",
-
-    apiQuery: (x, y, z) => {
-      const apiURL =
-        "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
-      this.setState({ loadingCards: true });
-      axios.get(`${apiURL}${x}${y}${z}`).then(res => {
-        this.setState({
-          products: res.data,
-          loadingCards: false,
-          filterType: "todos"
-        });
-        this.getSubFamilies();
-        this.sortData();
-      });
-    }
   };
+
+  apiQuery = (x, y, z) => {
+    const apiURL =
+      "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
+    this.setState({ loadingCards: true });
+    axios.get(`${apiURL}${x}${y}${z}`).then(res => {
+      this.setState({
+        products: res.data,
+        loadingCards: false,
+        filterType: "todos"
+      });
+      this.getSubFamilies();
+      this.sortData();
+    });
+  }
 
   getData = () => {
     if (this.routeChange()) {
       let family = this.checkFamily();
       let subfamily = this.checkSubfamily();
 
-      this.state.apiQuery("/search", family, subfamily);
+      this.apiQuery("/search", family, subfamily);
 
       this.setState({
         lastFamily: this.props.family,

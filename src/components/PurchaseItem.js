@@ -34,7 +34,7 @@ class PurchaseItem extends Component {
                         "/" +
                         subfamily +
                         "/" +
-                        name.replace(/ /g,"") +
+                        name.replace(/ /g, "") +
                         ".jpg"
                       }
                       alt="not found"
@@ -67,7 +67,22 @@ class PurchaseItem extends Component {
                         <form className="form-inline justify-content-center">
                           <button
                             type="button"
-                            className="btn btn-sm btn-success mr-1 cFontMono"
+                            className="btn btn-sm btn-danger mr-1 cFontMono"
+                            onClick={this.clickSub.bind(this, dispatch, name)}
+                          >
+                            -
+                          </button>
+
+                          <input
+                            type="text"
+                            className="text-center form-control form-control-sm col-2"
+                            placeholder={quantity}
+                            disabled
+                          />
+
+                          <button
+                            type="button"
+                            className="btn btn-sm btn-success ml-1 cFontMono"
                             onClick={this.clickAdd.bind(
                               this,
                               dispatch,
@@ -77,31 +92,12 @@ class PurchaseItem extends Component {
                           >
                             +
                           </button>
-                          <input
-                            type="text"
-                            className="text-center form-control form-control-sm col-3"
-                            placeholder={quantity}
-                            disabled
-                          />
-                          <button
-                            type="button"
-                            className="btn btn-sm btn-danger ml-1 cFontMono"
-                            onClick={this.clickSub.bind(this, dispatch, name)}
-                          >
-                            -
-                          </button>
 
                           <img
-                            className="ml-3"
-                            src={
-                              "img/icons/trash-red.png"
-                            }
+                            className="ml-auto"
+                            src={"img/icons/trash-red.png"}
                             alt="not found"
-                            onClick={this.clickDel.bind(
-                              this,
-                              dispatch,
-                              name,
-                            )}
+                            onClick={this.clickDel.bind(this, dispatch, name)}
                           />
                         </form>
                       </div>

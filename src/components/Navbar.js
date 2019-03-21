@@ -35,7 +35,7 @@ class Navbar extends Component {
 
           return (
             <div>
-              <nav className="navbar navbar-dark fixed-top bg-success cNavBarHeight">
+              <nav className="navbar navbar-dark fixed-top bg-success cNavBar">
                 <NavLink to={path}>
                   <div className="cNavbarLink_1 text-center py-2">
                     <img src="img/icons/grocery.png" alt="not found" />
@@ -59,7 +59,7 @@ class Navbar extends Component {
                 </NavLink>
 
                 <button
-                  className="navbar-toggler"
+                  className="navbar-toggler mr-2"
                   type="button"
                   data-toggle="collapse"
                   data-target="#navbarSupportedContent"
