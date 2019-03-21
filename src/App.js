@@ -18,7 +18,7 @@ class App extends Component {
         <Provider>
           <div className="App">
             <Navbar />
-            <div className="container h-100">
+              <div className="container">
               <div className="row h-100">
                 <Switch>
                   <Redirect exact from="/" to="/products/tragos/vinostintos" />
@@ -33,9 +33,10 @@ class App extends Component {
                   <Route component={NotFound} />
                 </Switch>
               </div>
+              </div>
             </div>
             <LiveChat />
-          </div>
+          
         </Provider>
       </HashRouter>
     );

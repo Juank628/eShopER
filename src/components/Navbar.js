@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
 import { NavLink, withRouter } from "react-router-dom";
+import NavItem from "./NavItem";
 
 class Navbar extends Component {
   state = {
@@ -74,284 +75,41 @@ class Navbar extends Component {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav cScrollableMenu">
-                    <li className="nav-item dropdown">
-                      <div
-                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Licores
-                      </div>
-                      <div
-                        className="dropdown-menu py-0 my-0 border-0"
-                        aria-labelledby="navbarDropdown"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                      >
-                        <NavLink
-                          to="/products/tragos/cervezas"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Cervezas
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/tragos/rones"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Rones
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/tragos/piscos"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Piscos
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/tragos/vinostintos"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Vinos tintos
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/tragos/vinosblancos"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Vinos blancos
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/tragos/otros"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Otros
-                        </NavLink>
-                      </div>
-                    </li>
-
-                    <li
-                      className="nav-item"
-                      data-toggle="collapse"
-                      data-target="#navbarSupportedContent"
-                    >
-                      <NavLink
-                        to="/products/cigarros/todos"
-                        className="nav-link cNavbarItem cNavbarItem_2 cUnselText"
-                      >
-                        Cigarros
-                      </NavLink>
-                    </li>
-
-                    <li className="nav-item dropdown">
-                      <div
-                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Bebidas
-                      </div>
-                      <div
-                        className="dropdown-menu py-0 my-0 border-0"
-                        aria-labelledby="navbarDropdown"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                      >
-                        <NavLink
-                          to="/products/bebidas/gaseosas"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Gaseosas
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/bebidas/jugos"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Jugos
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/bebidas/aguas"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Aguas
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/bebidas/energizantes"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Energizantes
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/bebidas/rehidratantes"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Rehidratantes
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/bebidas/otros"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Otros
-                        </NavLink>
-                      </div>
-                    </li>
-
-                    <li className="nav-item dropdown">
-                      <div
-                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_2 cUnselText"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Golosinas
-                      </div>
-                      <div
-                        className="dropdown-menu py-0 my-0 border-0"
-                        aria-labelledby="navbarDropdown"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                      >
-                        <NavLink
-                          to="/products/golosinas/chocolates"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Chocolates
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/golosinas/gomitas"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Gomitas
-                        </NavLink>
-                      </div>
-                    </li>
-                    <li
-                      className="nav-item"
-                      data-toggle="collapse"
-                      data-target="#navbarSupportedContent"
-                    >
-                      <NavLink
-                        to="/products/panetones/NA"
-                        className="nav-link cNavbarItem cNavbarItem_1 cUnselText"
-                      >
-                        Panetones
-                      </NavLink>
-                    </li>
-
-                    <li className="nav-item dropdown">
-                      <div
-                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_2 cUnselText"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Abarrotes
-                      </div>
-                      <div
-                        className="dropdown-menu py-0 my-0 border-0"
-                        aria-labelledby="navbarDropdown"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                      >
-                        <NavLink
-                          to="/products/abarrotes/pescadoslata"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Pescado en lata
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/abarrotes/frutaslata"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Fruta en lata
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/abarrotes/fideospasta"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Fideos y pastas
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/abarrotes/aceitevegetal"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Aceite vegetal
-                        </NavLink>
-                      </div>
-                    </li>
-
-                    <li className="nav-item dropdown">
-                      <div
-                        className="nav-link dropdown-toggle nav-link cNavbarItem cNavbarItem_1 cUnselText"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Limpieza
-                      </div>
-                      <div
-                        className="dropdown-menu py-0 my-0 border-0"
-                        aria-labelledby="navbarDropdown"
-                        data-toggle="collapse"
-                        data-target="#navbarSupportedContent"
-                      >
-                        <NavLink
-                          to="/products/limpieza/detergentes"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Detergentes
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/limpieza/desinfectantes"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Desinfectantes
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/limpieza/lavavajillas"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Lavavajillas
-                        </NavLink>
-
-                        <NavLink
-                          to="/products/limpieza/lejia"
-                          className="nav-link cNavbarSubItem cUnselText"
-                        >
-                          Lejia
-                        </NavLink>
-                      </div>
-                    </li>
+                    <NavItem
+                      route="/products/tragos/todos"
+                      name="Licores"
+                      color="cNavbarItem_1"
+                    />
+                    <NavItem
+                      route="/products/cigarros/todos"
+                      name="Cigarros"
+                      color="cNavbarItem_2"
+                    />
+                    <NavItem
+                      route="/products/bebidas/todos"
+                      name="Bebidas"
+                      color="cNavbarItem_1"
+                    />
+                    <NavItem
+                      route="/products/golosinas/todos"
+                      name="Golosinas"
+                      color="cNavbarItem_2"
+                    />
+                    <NavItem
+                      route="/products/panetones/todos"
+                      name="Panetones"
+                      color="cNavbarItem_1"
+                    />
+                    <NavItem
+                      route="/products/abarrotes/todos"
+                      name="Abarrotes"
+                      color="cNavbarItem_2"
+                    />
+                    <NavItem
+                      route="/products/limpieza/todos"
+                      name="Limpieza"
+                      color="cNavbarItem_1"
+                    />
                   </ul>
                 </div>
               </nav>

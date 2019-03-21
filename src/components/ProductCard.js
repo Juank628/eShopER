@@ -30,7 +30,8 @@ class ProductCard extends Component {
           const { dispatch } = value;
 
           return (
-            <div className="card col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-2 mb-2">
+            <div className="card col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-1 mb-2">
+            
               <img
                 className="card-img-top"
                 src={

@@ -5,12 +5,26 @@
   height: 100vh;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
 .cBgWhite {
   background-color: white;
 }
 
 .cFontMono {
   font-family: monospace;
+}
+
+.cFilterIcon{
+  fill: red;
+  width: 32px;
+  height: 32px;
 }
 
 .cVerticalCenter {
@@ -113,7 +127,7 @@ li {
 }
 
 .cNavbarSpace {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 .cNavBarHeight {
@@ -134,9 +148,14 @@ li {
 .cNavbarItem {
   cursor: pointer;
   color: rgba(0,0,0,0.7) !important;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   font-family: 'Roboto', sans-serif; 
+}
+
+.cNavbarItem:hover {
+  color: white !important;
+  background-color: black !important
 }
 
 .cNavbarItem_1 {
@@ -145,21 +164,6 @@ li {
 
 .cNavbarItem_2 {
   background-color: #00c853 !important;
-}
-
-.cNavbarSubItem {
-  cursor: pointer;
-  color:  rgba(0,0,0,0.7) !important;
-  padding: 2px !important;
-  font-size: 20px;
-  text-align: center;
-  font-family: 'Roboto', sans-serif; 
-  background-color: #69f0ae !important;
-}
-
-.cNavbarSubItem:hover {
-  color: white !important;
-  background-color: black !important
 }
 
 .cNavbarLink_1 {
@@ -185,6 +189,12 @@ li {
   text-align: center;
   animation-name: sentMessageImg;
   animation-duration: 0.8s;
+}
+
+.cFilterButton {
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif; 
 }
 
 /**********************************Media queries************************************/
