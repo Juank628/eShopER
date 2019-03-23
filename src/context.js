@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
 const Context = React.createContext();
 
@@ -74,6 +74,11 @@ class Provider extends Component {
     sendingOrder: false,
     orderSent: false,
     orderNumber: 0,
+    location: "",
+
+    testContext: () => {
+      console.log("x");
+    },
 
     getData: () => {
       if (sessionStorage.length > 4) {
@@ -166,15 +171,41 @@ class Provider extends Component {
       );
     },
 
+    setLocation: () => {
+      const success = position => {
+        this.setState({
+          location: position.coords.latitude + "," + position.coords.longitude
+        });
+        console.log(this.state.location);
+      };
+
+      const error = err => {
+        this.setState({
+          location: 'error: ' + err.code 
+        });
+        console.log(err.code);
+      };
+
+      if ("geolocation" in navigator) {
+        const options = {
+          enableHighAccuracy: true,
+          timeout: 60000,
+          maximumAge: 0
+        };
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      }
+    },
+
     sendOrder: () => {
       const data = {
         phone: "No phone",
         name: "No name",
-        location: 0,
+        location: this.state.location,
         purchaseList: JSON.stringify(this.state.purchaseList)
       };
 
-      const apiURL = "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api"
+      const apiURL =
+        "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
 
       this.setState({ sendingOrder: true });
 
@@ -183,7 +214,7 @@ class Provider extends Component {
           console.log(res.data);
           this.setState({ orderSent: true });
           this.state.resetPurchaseList();
-          this.setState({orderNumber: res.data})
+          this.setState({ orderNumber: res.data });
           this.props.history.push("/ordersent");
         }
         this.setState({ sendingOrder: false });
@@ -195,6 +226,7 @@ class Provider extends Component {
 
   componentDidMount() {
     this.state.getData();
+    this.state.setLocation();
   }
 
   render() {
@@ -206,5 +238,5 @@ class Provider extends Component {
   }
 }
 
-export default withRouter(Provider)
+export default withRouter(Provider);
 export const Consumer = Context.Consumer;
