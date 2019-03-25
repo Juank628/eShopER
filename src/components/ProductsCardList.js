@@ -8,15 +8,16 @@ class ProductsCardList extends Component {
   state = {
     products: [],
     lastFamily: "",
+    lastProduct: "",
     loadingCards: false,
-    filterType: "todos",
+    filterType: "todos"
   };
 
   apiQuery = (x, y, z) => {
     const apiURL =
       "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
     this.setState({ loadingCards: true });
-    axios.get(`${apiURL}${x}${y}`).then(res => {
+    axios.get(`${apiURL}${x}${y}/todos/todos/todos${z}`).then(res => {
       this.setState({
         products: res.data,
         loadingCards: false,
@@ -25,14 +26,16 @@ class ProductsCardList extends Component {
       this.getSubFamilies();
       this.sortData();
     });
-  }
+  };
 
   getData = () => {
     if (this.routeChange()) {
       let family = this.checkFamily();
-      this.apiQuery("/search", family);
+      let product = this.checkProduct();
+      this.apiQuery("/search", family, product);
       this.setState({
         lastFamily: this.props.family,
+        lastProduct: this.props.product
       });
     }
   };
@@ -79,12 +82,17 @@ class ProductsCardList extends Component {
 
   routeChange = () => {
     return (
-      this.state.lastFamily !== this.props.family
+      this.state.lastFamily !== this.props.family ||
+      this.state.lastProduct !== this.props.product
     );
   };
 
   checkFamily = () => {
     return "/" + this.props.family;
+  };
+
+  checkProduct = () => {
+    return "/" + this.props.product;
   };
 
   componentDidUpdate(prevProps) {

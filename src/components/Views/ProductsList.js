@@ -31,6 +31,7 @@ export default class ProductsList extends Component {
         />
         <ProductsCardList
           family={this.props.match.params.family}
+          product={this.props.match.params.product}
           sortType={this.state.sortType}
           filterType={this.state.filterType}
           setSubFamilies={this.setSubFamilies}

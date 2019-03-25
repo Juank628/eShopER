@@ -21,13 +21,13 @@ class App extends Component {
               <div className="container">
               <div className="row h-100">
                 <Switch>
-                  <Redirect exact from="/" to="/products/tragos" />
+                  <Redirect exact from="/" to="/products/tragos/todos" />
                 </Switch>
                 <Switch>
                   <Route path="/ordersent" component={OrderConfirmation} />
                   <Route path="/purchase" component={PurchaseList} />
                   <Route
-                    path="/products/:family"
+                    path="/products/:family/:product"
                     component={ProductsList}
                   />
                   <Route component={NotFound} />

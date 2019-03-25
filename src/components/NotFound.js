@@ -23,7 +23,7 @@ export default class NotFound extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/products/tragos" />;
+      return <Redirect to="/products/tragos/todos" />;
     }
     return (
       <div className="col-12 cVerticalCenter">

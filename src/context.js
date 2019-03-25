@@ -76,10 +76,6 @@ class Provider extends Component {
     orderNumber: 0,
     location: "",
 
-    testContext: () => {
-      console.log("x");
-    },
-
     getData: () => {
       if (sessionStorage.length > 4) {
         this.setState({
@@ -174,14 +170,19 @@ class Provider extends Component {
     setLocation: () => {
       const success = position => {
         this.setState({
-          location: position.coords.latitude + "," + position.coords.longitude
+          location:
+            position.coords.latitude +
+            "," +
+            position.coords.longitude +
+            "/" +
+            position.coords.accuracy
         });
         console.log(this.state.location);
       };
 
       const error = err => {
         this.setState({
-          location: 'error: ' + err.code 
+          location: "/error: " + err.code
         });
         console.log(err.code);
       };
@@ -189,8 +190,8 @@ class Provider extends Component {
       if ("geolocation" in navigator) {
         const options = {
           enableHighAccuracy: true,
-          timeout: 60000,
-          maximumAge: 0
+          timeout: 50000,
+          maximumAge: 2000
         };
         navigator.geolocation.getCurrentPosition(success, error, options);
       }

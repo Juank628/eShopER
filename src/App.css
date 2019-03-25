@@ -39,6 +39,12 @@ body {
   fill: rgba(0,0,0,0.6);
 }
 
+.cSearchIcon{
+  fill: rgba(0,0,0,0.6);
+  width: 24px;
+  height: 24px;
+}
+
 .cFilterIcon{
   fill: red;
   width: 24px;
@@ -220,6 +226,22 @@ li {
   height: 56px;
   width: 56px;
   background-color: inherit;
+}
+
+.cSearchInput {
+  height: 30px !important;
+  border-top-left-radius: 15px !important;
+  border-bottom-left-radius: 15px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  width: auto !important;
+}
+
+.cSearchButton {
+  height: 30px !important;
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .cSentMessageImg {
