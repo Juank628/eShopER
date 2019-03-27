@@ -73,8 +73,8 @@ class ProductsCardList extends Component {
   getSubFamilies = () => {
     let subFamilies = [];
     for (let i = 0; i < this.state.products.length; i++) {
-      if (subFamilies.indexOf(this.state.products[i].subfamily) === -1) {
-        subFamilies.push(this.state.products[i].subfamily);
+      if (subFamilies.indexOf(this.state.products[i].subfamily.replace(/_/g, " ")) === -1) {
+        subFamilies.push(this.state.products[i].subfamily.replace(/_/g, " "));
       }
     }
     this.props.setSubFamilies(subFamilies);

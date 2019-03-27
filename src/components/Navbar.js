@@ -101,12 +101,16 @@ class Navbar extends Component {
                           type="search"
                           placeholder="Buscar"
                           aria-label="Search"
+                          data-toggle=""
+                          data-target="#navbarSupportedContent"
                           onKeyUp={this.updateProduct}
                           onKeyDown={this.checkEnter}
                         />
                         <button
                           className="my-2 mr-auto cSearchButton"
                           type="button"
+                          data-toggle="collapse"
+                          data-target="#navbarSupportedContent"
                           onClick={this.search}
                         >
                           <Icon
@@ -151,6 +155,11 @@ class Navbar extends Component {
                       route="/products/limpieza/todos"
                       name="Limpieza"
                       color="cNavbarItem_2"
+                    />
+                    <NavItem
+                      route="/products/higiene/todos"
+                      name="Higiene"
+                      color="cNavbarItem_1"
                     />
                   </ul>
                 </div>
