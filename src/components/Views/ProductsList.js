@@ -23,7 +23,7 @@ export default class ProductsList extends Component {
 
   render() {
     return (
-      <div className="col-12 justify-content-center cNavbarSpace">
+      <div className="col-12 cNavbarSpace">
         <ProductFilter
           setSortType={this.setSortType}
           setFilterType={this.setFilterType}

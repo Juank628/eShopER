@@ -119,7 +119,7 @@ class ProductsCardList extends Component {
               {loadingCards ? (
                 <Loading />
               ) : (
-                <div className="row justify-content-center cChatSpace">
+                <div className="row cChatSpace px-2">
                   {products.map((product, i) => {
                     if (product.subfamily === this.state.filterType) {
                       return <ProductCard key={i} product={product} />;

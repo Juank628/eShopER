@@ -2,29 +2,10 @@ import React, { Component } from "react";
 import { Consumer } from "../context";
 import { NavLink, withRouter } from "react-router-dom";
 import NavItem from "./NavItem";
-import Icon from "./Icon";
 
 class Navbar extends Component {
   state = {
     path: "/products/tragos/cervezas",
-    family: "todos",
-    product: "todos"
-  };
-
-  checkEnter = e => {
-    if (e.keyCode === 13) {
-      this.search();
-    }
-  };
-
-  updateProduct = e => {
-    this.setState({ product: e.target.value });
-  };
-
-  search = () => {
-    this.props.history.push(
-      "/products/" + this.state.family + "/" + this.state.product
-    );
   };
 
   componentDidUpdate(prevProps) {
@@ -94,72 +75,45 @@ class Navbar extends Component {
                   id="navbarSupportedContent"
                 >
                   <ul className="navbar-nav cScrollableMenu">
-                    <li className="cNavbarItem_1">
-                      <form className="form-inline">
-                        <input
-                          className="form-control ml-auto cSearchInput"
-                          type="search"
-                          placeholder="Buscar"
-                          aria-label="Search"
-                          data-toggle=""
-                          data-target="#navbarSupportedContent"
-                          onKeyUp={this.updateProduct}
-                          onKeyDown={this.checkEnter}
-                        />
-                        <button
-                          className="my-2 mr-auto cSearchButton"
-                          type="button"
-                          data-toggle="collapse"
-                          data-target="#navbarSupportedContent"
-                          onClick={this.search}
-                        >
-                          <Icon
-                            group="icons"
-                            symbol="search"
-                            iconStyle="cSearchIcon"
-                          />
-                        </button>
-                      </form>
-                    </li>
                     <NavItem
                       route="/products/tragos/todos"
                       name="Licores"
-                      color="cNavbarItem_2"
+                      color="cNavbarItem_1"
                     />
                     <NavItem
                       route="/products/cigarros/todos"
                       name="Cigarros"
-                      color="cNavbarItem_1"
+                      color="cNavbarItem_2"
                     />
                     <NavItem
                       route="/products/bebidas/todos"
                       name="Bebidas"
-                      color="cNavbarItem_2"
+                      color="cNavbarItem_1"
                     />
                     <NavItem
                       route="/products/golosinas/todos"
                       name="Golosinas"
-                      color="cNavbarItem_1"
+                      color="cNavbarItem_2"
                     />
                     <NavItem
                       route="/products/panetones/todos"
                       name="Panetones"
-                      color="cNavbarItem_2"
+                      color="cNavbarItem_1"
                     />
                     <NavItem
                       route="/products/abarrotes/todos"
                       name="Abarrotes"
-                      color="cNavbarItem_1"
+                      color="cNavbarItem_2"
                     />
                     <NavItem
                       route="/products/limpieza/todos"
                       name="Limpieza"
-                      color="cNavbarItem_2"
+                      color="cNavbarItem_1"
                     />
                     <NavItem
                       route="/products/higiene/todos"
                       name="Higiene"
-                      color="cNavbarItem_1"
+                      color="cNavbarItem_2"
                     />
                   </ul>
                 </div>

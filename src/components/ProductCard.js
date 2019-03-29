@@ -31,7 +31,8 @@ class ProductCard extends Component {
           const { dispatch } = value;
 
           return (
-            <div className="card cCard cBoxShadow col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2 mx-1 mb-2">
+            <div className="col-6 col-sm-3 col-md-2 col-lg-2 col-xl-2 p-1">
+            <div className="card cCard cBoxShadow mb-2 p-2">
               <img
                 className="card-img-top mt-3"
                 src={
@@ -119,6 +120,7 @@ class ProductCard extends Component {
                   </form>
                 )}
               </div>
+            </div>
             </div>
           );
         }}

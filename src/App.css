@@ -40,7 +40,13 @@ body {
 }
 
 .cSearchIcon{
-  fill: rgba(0,0,0,0.6);
+  fill: rgba(0,0,0,0.4);
+  width: 24px;
+  height: 24px;
+}
+
+.cBackIcon{
+  fill: rgba(0,0,0,0.7);
   width: 24px;
   height: 24px;
 }
@@ -53,6 +59,12 @@ body {
 
 .cFilterFont{
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cSearchFont{
+  font-size: 14px;
+  color: rgba(0,0,0,0.4);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -117,7 +129,7 @@ li {
 .cCardPrice {
   position: absolute;
   top: 30px;
-  margin-left: -15px;
+  margin-left: -8px;
   padding: 3px;
   background-color: rgba(53, 168, 63, 1);
   color: white;
@@ -229,12 +241,13 @@ li {
 }
 
 .cSearchInput {
-  height: 30px !important;
-  border-top-left-radius: 15px !important;
-  border-bottom-left-radius: 15px !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  width: auto !important;
+  height: 30px;
+  border: none;
+  width: 50%;
+}
+
+.cSearchInput:focus {
+  outline-width: 0
 }
 
 .cSearchButton {
@@ -242,6 +255,11 @@ li {
   border: none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+.cSearchExpanded {
+  animation-name: expandSearch;
+  animation-duration: 0.3s;
 }
 
 .cSentMessageImg {
@@ -373,4 +391,14 @@ li {
   100% {
     transform: scale(1);
   }
+}
+
+@keyframes expandSearch {
+  0% {
+    transform: scale(0.1);
+  }
+  
+  100% {
+    transform: scale(1);
+  }  
 }
