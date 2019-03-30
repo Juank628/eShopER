@@ -72,7 +72,7 @@ class ProductFilter extends Component {
           </div>
         </div>
 
-        <div className="col-4 p-1 mx-auto text-center cFilterButton cUnselText cBoxShadow">
+        <div className="col-4 p-1 mx-auto text-center border-right cFilterButton cUnselText cBoxShadow">
           <div
             className="dropdown-toggle"
             id="filterDropdown"
