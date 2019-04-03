@@ -121,7 +121,7 @@ class ProductsCardList extends Component {
               ) : (
                 <div className="row cChatSpace px-2">
                   {products.map((product, i) => {
-                    if (product.subfamily === this.state.filterType) {
+                    if (product.subfamily === this.state.filterType.replace(/ /g,'_')) {
                       return <ProductCard key={i} product={product} />;
                     } else if (this.state.filterType === "todos") {
                       return <ProductCard key={i} product={product} />;
