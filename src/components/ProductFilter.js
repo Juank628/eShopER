@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Icon from "./Icon";
 
 class ProductFilter extends Component {
@@ -9,7 +9,7 @@ class ProductFilter extends Component {
     searchExpanded: false
   };
 
-  expandSearch = () => {
+  expandSearch = e => {
     this.setState({ searchExpanded: true });
   };
 
@@ -119,6 +119,7 @@ class ProductFilter extends Component {
               />
             </div>
             <input
+              autoFocus
               className="cSearchInput"
               type="text"
               placeholder="Buscar..."

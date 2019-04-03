@@ -62,7 +62,7 @@ class ProductsCardList extends Component {
         this.setState({ products: sortedData });
         break;
       default:
-        console.log("no sort type found");
+        break;
     }
   };
 

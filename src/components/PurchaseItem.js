@@ -17,6 +17,11 @@ class PurchaseItem extends Component {
 
   render() {
     const { name, quantity, price, family, subfamily } = this.props.item;
+
+    let subTotal = price * quantity
+    subTotal = parseFloat(subTotal)
+    subTotal = subTotal.toFixed(2)
+
     return (
       <Consumer>
         {value => {
@@ -55,7 +60,7 @@ class PurchaseItem extends Component {
                           </div>
                           <div className="col-12">
                             <h5 className="cPurchaseListSubTotal text-right">
-                              S/{price * quantity}
+                              S/{subTotal}
                             </h5>
                           </div>
                         </div>

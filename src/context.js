@@ -177,7 +177,6 @@ class Provider extends Component {
             "/" +
             position.coords.accuracy
         });
-        console.log(this.state.location);
       };
 
       const error = err => {

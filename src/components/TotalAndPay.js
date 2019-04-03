@@ -9,24 +9,37 @@ export default class TotalAndPay extends Component {
   render() {
     return (
       <Consumer>
-        {value => {
+        {value => { 
+          let subTotal = 0;
           let totalPrice = 0;
+          let deliveryPrice = this.state.deliveryPrice;
+          
           for (let i = 0; i < value.productArray.length; i++) {
-            totalPrice =
-              totalPrice + value.quantityArray[i] * value.priceArray[i];
+            subTotal =
+              subTotal + parseInt(value.quantityArray[i]) * parseFloat(value.priceArray[i]);
           }
+          totalPrice = parseFloat(subTotal) + parseFloat(deliveryPrice)
+          
+          subTotal = parseFloat(subTotal)
+          deliveryPrice = parseFloat(deliveryPrice)
+          totalPrice = parseFloat(totalPrice)
+
+          subTotal = subTotal.toFixed(2)
+          deliveryPrice = deliveryPrice.toFixed(2)
+          totalPrice = totalPrice.toFixed(2)
+
           return (
             <div className="cFixed px-2 cBgWhite border-sm-top">
             <div className="border-top d-sm-none"></div>
             <div className="px-2 mt-2">
               <span className="">Subtotal:</span>
-              <span className="float-right">S/{totalPrice}</span>
+              <span className="float-right">S/{subTotal}</span>
               <br />
               <span className="">Delivery:</span>
-              <span className="float-right">S/{this.state.deliveryPrice}</span>
+              <span className="float-right">S/{deliveryPrice}</span>
               <br />
               <span className="cTotalAndPayTotal">Total a pagar:</span>
-              <span className="cTotalAndPayTotal float-right">S/{totalPrice + this.state.deliveryPrice}</span>
+              <span className="cTotalAndPayTotal float-right">S/{totalPrice}</span>
             </div>
 
               {value.sendingOrder ? (
@@ -45,6 +58,7 @@ export default class TotalAndPay extends Component {
               ) : (
                 <button
                   type="button"
+                  disabled={value.productArray.length === 0}
                   className="mt-2 mb-3 float-right btn btn-success btn-lg cTotalAndPayBtn"
                   onClick={value.sendOrder}
                 >

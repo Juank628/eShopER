@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Consumer } from "../context";
 import { NavLink, withRouter } from "react-router-dom";
 import NavItem from "./NavItem";
+import Icon from "./Icon"
 
 class Navbar extends Component {
   state = {
@@ -59,7 +60,7 @@ class Navbar extends Component {
                 </NavLink>
 
                 <button
-                  className="navbar-toggler mr-2"
+                  className="navbar-toggler mr-2 cToogleButton"
                   type="button"
                   data-toggle="collapse"
                   data-target="#navbarSupportedContent"
@@ -67,7 +68,7 @@ class Navbar extends Component {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span className="navbar-toggler-icon" />
+                  <Icon group="icons" symbol="menu" iconStyle="cMenuIcon" />
                 </button>
 
                 <div
