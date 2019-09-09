@@ -15,9 +15,9 @@ class ProductsCardList extends Component {
 
   apiQuery = (x, y, z) => {
     const apiURL =
-      "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
+      "http://localhost:8000";
     this.setState({ loadingCards: true });
-    axios.get(`${apiURL}${x}${y}/todos/todos/stock${z}`).then(res => {
+    axios.get(`${apiURL}/api${x}${y}${z}`).then(res => {
       this.setState({
         products: res.data,
         loadingCards: false,
