@@ -15,7 +15,7 @@ class ProductsCardList extends Component {
 
   apiQuery = (x, y, z) => {
     const apiURL =
-      "http://localhost:8000";
+      "https://boiling-tor-89761.herokuapp.com";
     this.setState({ loadingCards: true });
     axios.get(`${apiURL}/api${x}${y}${z}`).then(res => {
       this.setState({

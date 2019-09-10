@@ -211,11 +211,11 @@ class Provider extends Component {
       };
 
       const apiURL =
-        "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
+        "https://boiling-tor-89761.herokuapp.com";
 
       this.setState({ sendingOrder: true });
 
-      axios.post(`${apiURL}/order`, { data }).then(res => {
+      axios.post(`${apiURL}/api/order`, { data }).then(res => {
         if (res.status > 199 && res.status < 300) {
           console.log(res.data);
           this.setState({ orderSent: true });
