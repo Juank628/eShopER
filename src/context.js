@@ -215,16 +215,15 @@ class Provider extends Component {
 
       this.setState({ sendingOrder: true });
 
-      axios.post(`${apiURL}/api/order`, { data }).then(res => {
+      axios.post(`${apiURL}/api/order`, { ...data }).then(res => {
         if (res.status > 199 && res.status < 300) {
-          console.log(res.data);
           this.setState({ orderSent: true });
           this.state.resetPurchaseList();
           this.setState({ orderNumber: res.data });
           this.props.history.push("/ordersent");
         }
         this.setState({ sendingOrder: false });
-      });
+      }).catch(error => console.error(error));
     },
 
     dispatch: action => this.setState(state => reducer(state, action))
