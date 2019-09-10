@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { Route, HashRouter, Redirect, Switch } from "react-router-dom";
 import Provider from "./context";
 import Navbar from "./components/Navbar.js";
-import LiveChat from "./components/LiveChat";
 import ProductsList from "./components/Views/ProductsList";
 import PurchaseList from "./components/Views/PurchaseList";
 import OrderConfirmation from "./components/Views/OrderConfirmation";
@@ -35,7 +34,6 @@ class App extends Component {
               </div>
               </div>
             </div>
-            <LiveChat />
           
         </Provider>
       </HashRouter>

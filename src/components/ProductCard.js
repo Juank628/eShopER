@@ -56,7 +56,7 @@ class ProductCard extends Component {
                   <span>{price}</span>
                 </div>
 
-                {sale == 1 ? (
+                {sale === "1" ? (
                   <div className="cCardSale">
                     <span>Oferta!</span>
                   </div>

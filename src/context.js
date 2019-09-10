@@ -219,7 +219,7 @@ class Provider extends Component {
         if (res.status > 199 && res.status < 300) {
           this.setState({ orderSent: true });
           this.state.resetPurchaseList();
-          this.setState({ orderNumber: res.data });
+          this.setState({ orderNumber: res.data.id });
           this.props.history.push("/ordersent");
         }
         this.setState({ sendingOrder: false });
