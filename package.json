@@ -10,13 +10,14 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.4"
+    "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm run build npm start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://elroblemarket.com/laravelApp/eShopBackend/public"
+  "homepage": "https://elroblemarket.com/test6/build/"
 }

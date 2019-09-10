@@ -1,41 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 /*********************************General styles***********************************/
-.cBgBlack {
-  background-color: black;
+.App {
+  height: 100vh;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100% !important;
+}
+
+.cBoxShadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .cBgWhite {
   background-color: white;
 }
 
-.cBlackTransparent {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
 .cFontMono {
   font-family: monospace;
 }
 
-.cFontColorWhite {
-  color: white !important;
+.cAddCartIcon{
+  fill: #33691E;
+  width: 32px;
+  height: 32px;
 }
 
-.cVerticalCenter{
-  height: 50%;
-  margin-top: 200px
+.cEmptyCartIcon{
+  fill: rgba(0,0,0,0.6);
+}
+
+.cNotFoundIcon{
+  fill: rgba(0,0,0,0.6);
+}
+
+.cSearchIcon{
+  fill: rgba(0,0,0,0.4);
+  width: 24px;
+  height: 24px;
+}
+
+.cBackIcon{
+  fill: rgba(0,0,0,0.7);
+  width: 24px;
+  height: 24px;
+}
+
+.cFilterIcon{
+  fill: red;
+  width: 24px;
+  height: 24px;
+}
+
+.cMenuIcon{
+  width: 30px;
+  height: 30px;
+  fill: rgba(255,255,255,0.7)
+}
+
+.cFilterFont{
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cToogleButton:focus{
+  outline-color: rgba(255,255,255,0.7)
+}
+
+.cSearchFont{
+  font-size: 14px;
+  color: rgba(0,0,0,0.4);
+  font-family: 'Roboto', sans-serif;
+}
+
+.cVerticalCenter {
+  height: 100%;
+  margin-top: 15vh;
+}
+
+.cChatTextLink {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.cChatSpace {
+  margin-bottom: 100px;
+}
+
+.cUnselText {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.cSelText {
+  -webkit-user-select: text; /* Safari */
+  -moz-user-select: text; /* Firefox */
+  -ms-user-select: text; /* IE10+/Edge */
+  user-select: text; /* Standard */
+}
+
+.cScrollableMenu {
+  height: auto;
+  max-height: 70vh;
+  overflow-x: hidden;
+}
+
+.active {
+  background-color: white;
+}
+
+li {
+  list-style: none;
 }
 
 /********************************Components styles**********************************/
+
+.cCard {
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.cCardBody {
+  padding: 8px 0 16px !important;
+}
+
 .cCardTitle {
   font-size: 15px;
 }
 
 .cCardPrice {
-  font-size: 14px;
+  position: absolute;
+  top: 30px;
+  margin-left: -8px;
+  padding: 3px;
+  background-color: rgba(53, 168, 63, 1);
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cCardSale {
+  position: absolute;
+  top: 60px;
+  margin-left: -8px;
+  padding: 3px;
+  background-color: #f44336;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cCardNameHeight {
+  height: 95px;
 }
 
 .cPurchaseListName {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .cPurchaseListPrice {
@@ -50,50 +179,110 @@
   max-width: 100px;
 }
 
-.cTotalAndPayTitle {
-  color: gray;
-}
-
-.cTotalAndPayPrice {
-  font-size: 40px;
-  font-weight: 700;
+.cTotalAndPayTotal {
+  font-weight: 550;
 }
 
 .cTotalAndPayBtnTxt {
-  font-weight: 700;
+  font-weight: 500;
 }
 
-.cTotalAndPaySentTxt {
-  font-size: 15px;
-  font-weight: 700;
+.cTotalAndPayOrdNo {
+  font-weight: 900;
 }
 
-.cNavBarSpace {
-  margin-top: 70px;
+.cNavbarSpace {
+  margin-top: 56px;
 }
 
-.cNavBarHeight {
+.cNavBar {
   height: 56px;
+  padding: 8px 0 !important;
 }
 
-.cNavBarBadge {
+.cNavbarBadge {
+  position: absolute;
+  left: 32px;
+  top: 28px;
+}
+
+.cNavbarBadgeMove {
   animation-name: badgeChange;
   animation-duration: 0.8s;
 }
 
-.cNavBarLicores {
-  background-image: url("/img/products/tragos/licores.jpg");
-  font-size: 50px;
+.cNavbarItem {
+  cursor: pointer;
+  color: rgba(0,0,0,0.7) !important;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif; 
 }
 
-.cNavBarCigarros {
-  background-image: url("/img/products/cigarros/cigarros.jpg");
-  font-size: 50px;
+.cNavbarItem:hover {
+  color: white !important;
+  background-color: #1b5e20  !important
 }
 
-.cNavBarTapas {
-  background-image: url("/img/products/tapas/tapas.jpg");
-  font-size: 50px;
+.cNavbarItem_1 {
+  background-color: #b9f6ca !important;
+}
+
+.cNavbarItem_2 {
+  background-color: #00c853 !important;
+}
+
+.cNavbarLink_1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 56px;
+  width: 56px;
+  background-color: inherit;
+}
+
+.cNavbarLink_2 {
+  position: absolute;
+  top: 0;
+  left: 56px;
+  height: 56px;
+  width: 56px;
+  background-color: inherit;
+}
+
+.cSearchInput {
+  height: 30px;
+  border: none;
+  width: 70%;
+}
+
+.cSearchInput:focus {
+  outline-width: 0
+}
+
+.cSearchButton {
+  height: 30px !important;
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.cSearchExpanded {
+  animation-name: expandSearch;
+  animation-duration: 0.3s;
+}
+
+.cSentMessageImg {
+  margin-top: 150px;
+  text-align: center;
+  animation-name: sentMessageImg;
+  animation-duration: 0.8s;
+}
+
+.cFilterButton {
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif; 
 }
 
 /**********************************Media queries************************************/
@@ -104,7 +293,7 @@
     width: 95%;
     position: fixed;
     bottom: 0;
-    z-index: 10000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -112,17 +301,17 @@
   }
 
   .cTotalAndPayBtn {
-    width: 50%
+    width: 55%;
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 544px and up) */
 @media (min-width: 576px) {
   .cFixed {
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -130,7 +319,7 @@
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -140,7 +329,7 @@
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -148,7 +337,7 @@
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -158,7 +347,7 @@
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -166,7 +355,7 @@
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -176,7 +365,7 @@
     width: 30%;
     position: fixed;
     bottom: 50%;
-    z-index: 100000;
+    z-index: 1000;
   }
 
   .cTotalAndPaySpace {
@@ -184,7 +373,7 @@
   }
 
   .cTotalAndPayBtn {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -200,4 +389,26 @@
   100% {
     transform: scale(1);
   }
+}
+
+@keyframes sentMessageImg {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes expandSearch {
+  0% {
+    transform: scale(0.1);
+  }
+  
+  100% {
+    transform: scale(1);
+  }  
 }

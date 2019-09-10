@@ -1,50 +1,51 @@
 import React, { Component } from "react";
 import { Consumer } from "../context";
-import axios from "axios";
 
 export default class TotalAndPay extends Component {
-  state = {
-    sending: false,
-    sent: false
-  };
-
-  sendOrder = purchaseList => {
-    const data = {
-      phone: "9898",
-      name: "ReactS",
-      purchaseList: JSON.stringify(purchaseList)
-    };
-
-    this.setState({ sending: true });
-
-    axios.post("/api/order", { data }).then(res => {
-      if (200 <= res.status && res.status <= 299) {
-        this.setState({ sent: true });
-        alert("Tu pedido ha sido enviado");
-      }
-      this.setState({ sending: false });
-    });
-  };
-
+  state={
+    deliveryPrice: 3.5
+  }
+  
   render() {
     return (
       <Consumer>
-        {value => {
+        {value => { 
+          let subTotal = 0;
           let totalPrice = 0;
+          let deliveryPrice = this.state.deliveryPrice;
+          
           for (let i = 0; i < value.productArray.length; i++) {
-            totalPrice =
-              totalPrice + value.quantityArray[i] * value.priceArray[i];
+            subTotal =
+              subTotal + parseInt(value.quantityArray[i]) * parseFloat(value.priceArray[i]);
           }
+          totalPrice = parseFloat(subTotal) + parseFloat(deliveryPrice)
+          
+          subTotal = parseFloat(subTotal)
+          deliveryPrice = parseFloat(deliveryPrice)
+          totalPrice = parseFloat(totalPrice)
+
+          subTotal = subTotal.toFixed(2)
+          deliveryPrice = deliveryPrice.toFixed(2)
+          totalPrice = totalPrice.toFixed(2)
+
           return (
-            <div className="cFixed cBgWhite">
-              <span className="cTotalAndPayTitle">Total:</span>
+            <div className="cFixed px-2 cBgWhite border-sm-top">
+            <div className="border-top d-sm-none"></div>
+            <div className="px-2 mt-2">
+              <span className="">Subtotal:</span>
+              <span className="float-right">S/{subTotal}</span>
               <br />
-              <span className="cTotalAndPayPrice">S/{totalPrice}</span>
+              <span className="">Delivery:</span>
+              <span className="float-right">S/{deliveryPrice}</span>
               <br />
-              {this.state.sending ? (
+              <span className="cTotalAndPayTotal">Total a pagar:</span>
+              <span className="cTotalAndPayTotal float-right">S/{totalPrice}</span>
+            </div>
+
+              {value.sendingOrder ? (
                 <button
                   type="button"
-                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
+                  className="mt-2 mb-3 float-right btn btn-success btn-lg cTotalAndPayBtn"
                   disabled
                 >
                   <span
@@ -57,8 +58,9 @@ export default class TotalAndPay extends Component {
               ) : (
                 <button
                   type="button"
-                  className="mt-2 mb-3 btn btn-success btn-lg cTotalAndPayBtn"
-                  onClick={this.sendOrder.bind(this, value.purchaseList)}
+                  disabled={value.productArray.length === 0}
+                  className="mt-2 mb-3 float-right btn btn-success btn-lg cTotalAndPayBtn"
+                  onClick={value.sendOrder}
                 >
                   <span className="cTotalAndPayBtnTxt">Pedir</span>
                 </button>

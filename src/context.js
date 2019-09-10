@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const Context = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "READ_CARDS":
-      state.apiQuery("products", action.y, action.z);
-      break;
-
     case "ADD_PRODUCT":
       let addProductIndex = state.productArray.indexOf(action.productName);
       if (addProductIndex === -1) {
@@ -69,7 +66,7 @@ const reducer = (state, action) => {
   }
 };
 
-export class Provider extends Component {
+class Provider extends Component {
   state = {
     products: [],
     productArray: [],
@@ -79,19 +76,13 @@ export class Provider extends Component {
     subFamilyArray: [],
     purchaseList: [],
     badgeAnimation: false,
-    loadingProducts: false,
-    showPurchaseList: false,
-
-    apiQuery: (x, y, z) => {
-      this.setState({ loadingProducts: true });
-      axios.get(`/api/${x}${y}${z}`).then(res => {
-        this.setState({ products: res.data });
-        this.setState({ loadingProducts: false });
-      });
-    },
+    loadingCards: false,
+    sendingOrder: false,
+    orderSent: false,
+    orderNumber: 0,
+    location: "",
 
     getData: () => {
-      this.state.apiQuery("products", "/tragos", "/vinos");
       if (sessionStorage.length > 4) {
         this.setState({
           productArray: sessionStorage.getItem("productArray").split(","),
@@ -149,6 +140,22 @@ export class Provider extends Component {
       }
     },
 
+    resetPurchaseList: () => {
+      this.setState({
+        productArray: [],
+        quantityArray: [],
+        priceArray: [],
+        familyArray: [],
+        subFamilyArray: [],
+        purchaseList: []
+      });
+      sessionStorage.removeItem("productArray");
+      sessionStorage.removeItem("quantityArray");
+      sessionStorage.removeItem("priceArray");
+      sessionStorage.removeItem("familyArray");
+      sessionStorage.removeItem("subFamilyArray");
+    },
+
     copyStateToStorage: () => {
       sessionStorage.setItem("productArray", this.state.productArray);
       sessionStorage.setItem("quantityArray", this.state.quantityArray);
@@ -166,11 +173,66 @@ export class Provider extends Component {
       );
     },
 
+    setLocation: () => {
+      const success = position => {
+        this.setState({
+          location:
+            position.coords.latitude +
+            "," +
+            position.coords.longitude +
+            "/" +
+            position.coords.accuracy
+        });
+      };
+
+      const error = err => {
+        this.setState({
+          location: "/error: " + err.code
+        });
+        console.log(err.code);
+      };
+
+      if ("geolocation" in navigator) {
+        const options = {
+          enableHighAccuracy: true,
+          timeout: 50000,
+          maximumAge: 2000
+        };
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      }
+    },
+
+    sendOrder: () => {
+      const data = {
+        phone: "No phone",
+        name: "No name",
+        location: this.state.location,
+        purchaseList: JSON.stringify(this.state.purchaseList)
+      };
+
+      const apiURL =
+        "https://www.elroblemarket.com/laravelApp/eShopBackend/public/api";
+
+      this.setState({ sendingOrder: true });
+
+      axios.post(`${apiURL}/order`, { data }).then(res => {
+        if (res.status > 199 && res.status < 300) {
+          console.log(res.data);
+          this.setState({ orderSent: true });
+          this.state.resetPurchaseList();
+          this.setState({ orderNumber: res.data });
+          this.props.history.push("/ordersent");
+        }
+        this.setState({ sendingOrder: false });
+      });
+    },
+
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
   componentDidMount() {
     this.state.getData();
+    this.state.setLocation();
   }
 
   render() {
@@ -182,4 +244,5 @@ export class Provider extends Component {
   }
 }
 
+export default withRouter(Provider);
 export const Consumer = Context.Consumer;
