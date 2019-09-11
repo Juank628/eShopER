@@ -126,7 +126,7 @@ class ProductsCardList extends Component {
                     } else if (this.state.filterType === "todos") {
                       return <ProductCard key={i} product={product} />;
                     }
-                    return "no products"
+                    return null
                   })}
                 </div>
               )}
